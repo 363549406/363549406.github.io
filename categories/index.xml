@@ -2,13 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Snail Mu</title>
-    <link>http://example.org/categories/</link>
+    <link>https://363549406.github.io/categories/</link>
     <description>Recent content in Categories on Snail Mu</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     
-	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://363549406.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python Advanced</title>
+      <link>https://363549406.github.io/categories/python-advanced/</link>
+      <pubDate>Mon, 25 Jun 2018 15:17:25 +0800</pubDate>
+      
+      <guid>https://363549406.github.io/categories/python-advanced/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

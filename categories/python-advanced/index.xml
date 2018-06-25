@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python Advanced on Snail Mu</title>
+    <link>https://363549406.github.io/categories/python-advanced/</link>
+    <description>Recent content in Python Advanced on Snail Mu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 25 Jun 2018 15:17:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://363549406.github.io/categories/python-advanced/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python高级开发技术栈</title>
+      <link>https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/</link>
+      <pubDate>Mon, 25 Jun 2018 15:17:25 +0800</pubDate>
+      
+      <guid>https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/</guid>
+      <description>为自己准备的Python高级开发技术栈。</description>
+    </item>
+    
+  </channel>
+</rss>
