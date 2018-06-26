@@ -286,7 +286,7 @@ In [33]: type(type)
 Out[33]: type
 </code></pre>
 
-<p>正是应为前面提到的类也是对象，所以也可以动态的创建类。使用<code>type</code>动态创建类。需要的参数依次为：类名，父类的元组，属性字典。</p>
+<p>正是应为前面提到的类也是对象，所以也可以动态的创建类。使用<code>type</code>动态创建类，需要的参数依次为：类名，父类的元组，属性字典。</p>
 
 <pre><code class="language-python">In [41]: def hello(self, name=None):
     ...:     return 'hello, {}'.format(name or self.name)
@@ -332,11 +332,11 @@ Out[47]: 'hello, world'
 
 <h2 id="metaclass-属性"><code>__metaclass__</code>属性</h2>
 
-<p>我们已经知道Python使用<code>__metaclass__</code>属性来创建类。所以在真正创建类之前Python会先查找<code>__metaclass__</code>属性。查找的顺序：</p>
+<p>我们已经知道Python2使用<code>__metaclass__</code>属性来创建类。所以在真正创建类之前Python会先查找<code>__metaclass__</code>属性。查找的顺序：</p>
 
 <ol>
 <li>在类定义中查找</li>
-<li>在MODULE层查找<code>__metaclass__</code>属性。只有在Python2中，并且创建的类时old-style类[1]。</li>
+<li>在MODULE层查找<code>__metaclass__</code>属性。只有在Python2中，并且创建的类是old-style类时[1]。</li>
 <li>在父类中查找[2]</li>
 </ol>
 
@@ -386,8 +386,29 @@ Out[47]: 'hello, world'
 <ul>
 <li>作者使用的是Python3。并且文章中很大篇幅讲解了Python实例化过程。Python对象实例化我会单独写一篇文章。</li>
 </ul></li>
-<li>[1] old-style类是指<code>class MyClass: pass</code>这种类定义方式。对应的new-style是指<code>class MyClass(object): pass</code>。</li>
 </ul>
+
+<p>注[1]：old-style类是指<code>class MyClass: pass</code>这种类定义方式。对应的new-style是指<code>class MyClass(object): pass</code>。</p>
+
+<pre><code class="language-python">class OutMetaclass(type):
+    def __new__(cls, clsname, bases, attrs):
+        print 'OutMetaclass', clsname
+        return super(OutMetaclass, cls).__new__(cls, clsname, bases, attrs)
+
+__metaclass__ = OutMetaclass
+
+class NewClass(object):
+    pass
+
+class OldClass:
+    pass
+</code></pre>
+
+<p>得到的结果</p>
+
+<pre><code class="language-shell">➜  test python A.py
+OutMetaclass OldClass
+</code></pre>
 
 <p>注[2]：我在Python2.7中试验过一种写法（为了举例子）</p>
 
