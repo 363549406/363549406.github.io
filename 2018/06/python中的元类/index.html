@@ -336,8 +336,8 @@ Out[47]: 'hello, world'
 
 <ol>
 <li>在类定义中查找</li>
+<li>在父类中查找[2] [3]</li>
 <li>在MODULE层查找<code>__metaclass__</code>属性。只有在Python2中，并且创建的类是old-style类时[1]。</li>
-<li>在父类中查找[2]</li>
 </ol>
 
 <h2 id="写一个元类">写一个元类</h2>
@@ -443,6 +443,34 @@ Traceback (most recent call last):
     return super(InMetaclass, cls).__new__(cls, clsname, bases, attrs)
 TypeError: Error when calling the metaclass bases
     metaclass conflict: the metaclass of a derived class must be a (non-strict) subclass of the metaclasses of all its bases
+</code></pre>
+
+<p>注[3]：是先在module这种全局中查找，还是先在父类中查找？Stack Overflow中说先在module层查找。但是我的实验结果是先在父类中查找。</p>
+
+<pre><code class="language-python">class OutMetaclass(type):
+    def __new__(cls, clsname, bases, attrs):
+        print 'OutMetaclass', clsname
+        return super(OutMetaclass, cls).__new__(cls, clsname, bases, attrs)
+
+__metaclass__ = OutMetaclass
+
+class InMetaclass(type):
+    def __new__(cls, clsname, bases, attrs):
+        print 'InMetaclass', clsname
+        return super(InMetaclass, cls).__new__(cls, clsname, bases, attrs)
+
+class OldClass:
+    __metaclass__ = InMetaclass
+
+class SubOldClass(OldClass):
+    pass
+</code></pre>
+
+<p>结果如下（说明现在父类中查找）：</p>
+
+<pre><code class="language-shell">➜  test python A.py
+InMetaclass OldClass
+InMetaclass SubOldClass
 </code></pre>
               
             </div>
