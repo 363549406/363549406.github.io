@@ -1,5 +1,9 @@
 
 
+  
+    
+  
+
 
   
 
@@ -18,25 +22,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Snail Mu</title>
+    <title>Python并发编程</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://363549406.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://363549406.github.io/index.xml">
-    
 
     
-    <meta name="description" content="Snail Mu Blog">
-    <meta property="og:description" content="Snail Mu Blog">
+    <meta name="description" content="本系列文章介绍Python中基于多线程、多进程、异步这三种方式实现的并发。
+
+">
+    <meta property="og:description" content="本系列文章介绍Python中基于多线程、多进程、异步这三种方式实现的并发。
+
+">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Snail Mu">
-    <meta property="og:url" content="/">
+    <meta property="og:title" content="Python并发编程">
+    <meta property="og:url" content="/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="Snail Mu Blog">
+    <meta name="twitter:description" content="本系列文章介绍Python中基于多线程、多进程、异步这三种方式实现的并发。
+
+">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -73,7 +81,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://363549406.github.io/">Snail Mu</a>
@@ -93,7 +101,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -203,35 +211,20 @@
 
       
 
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
+    <h1 class="post-title" itemprop="headline">
+      Python并发编程
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
-          Python并发编程
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
       <time itemprop="datePublished" datetime="2018-06-27T21:40:00&#43;08:00">
@@ -251,231 +244,140 @@
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>本系列文章介绍Python中基于多线程、多进程、异步这三种方式实现的并发。</p>
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>本系列文章介绍Python中基于多线程、多进程、异步这三种方式实现的并发。</p>
 
 <p></p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
 
-          
+<p>首先理清楚一些概念。</p>
+
+<ul>
+<li><strong>同步 Synchronous</strong>：程序是顺序执行的。在完成前一个任务后才能开始下一个任务。</li>
+<li><strong>异步 Asynchronous</strong>：程序执行中保留执行现场，并切换到另一个任务。任务是交叉执行的。</li>
+<li><strong>并发 Concurrency</strong>：同一时间段处理多个任务。Do Multi Things At Once.</li>
+</ul>
+
+<!--并发的好处 why-->
+
+<p>对于计算密集型程序，并发能充分利用多核CPU的计算资源。对于IO密集型程序，并发可以减少CPU的空闲时间。简单而言，并发可以减少程序运行时间、增加程序响应请求数等等，它帮助我们提高程序性能。</p>
+
+<p>本系列文章会分如下三部分：</p>
+
+<ul>
+<li>基于多线程、多进程的并发
+
+<ul>
+<li><a href="../python并发编程part1多线程和多进程/">Python并发编程part1多进程和多线程</a></li>
+</ul></li>
+<li>基于异步的并发
+
+<ul>
+<li><a href="../python并发编程part2协程/">Python并发编程part2协程</a></li>
+<li>asyncio</li>
+</ul></li>
+<li>Python并发编程总结</li>
+</ul>
+
+<p>文章中会尽量使用封装程度较高的实现[1]。</p>
+
+<!-- 看完文章后，希望大家可以回答如下问题：
+
+1. 什么是GIL？
+2. 协程相比于多进程多线程的优点是什么？
+3. 对关键词yield你怎么理解？
+4. 协程的基本原理是什么？
+5. 可否写一个使用协程来完成异步操作的程序？ -->
+
+<h4 id="扩展阅读">扩展阅读</h4>
+
+<ul>
+<li>《Python编程实战：运用设计模式、并发和程序库创建高质量程序》书中第4章
+
+<ul>
+<li>注[1] 作者在书中按照封装程度将并发划分了：低级并发、中级并发、高级并发三个级别。如果从我自己一个学习者，使用者的角度，知道在什么场景下用什么、怎么用是最重要的。低级并发中涉及到的锁、信息量这些我直接使用反而容易出错，不如留给模块开发者去考虑。</li>
+</ul></li>
+<li><a href="https://www.youtube.com/watch?v=iG6fr81xHKA">Miguel Grinberg Asynchronous Python for the Complete Beginner PyCon 2017</a>
+
+<ul>
+<li>帮助我对Python中的多线程、多进程、异步三种实现并发的方式有个初步了解。<strong>视频最后对比了三种实现方式</strong>。</li>
+</ul></li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
-  
-    
-      
-        
-      
-    
-  
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a>
 
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/%E5%B8%B8%E7%94%A8%E9%93%BE%E6%8E%A5/">
-          常用链接
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-26T13:57:00&#43;08:00">
-        
-  六月 26, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>感谢每一位在互联网上分享的人。</p>
-
-<p></p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/%E5%B8%B8%E7%94%A8%E9%93%BE%E6%8E%A5/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
+                  </div>
+                
+              
             
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/">
-          Python中的元类
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-25T17:51:25&#43;08:00">
-        
-  六月 25, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python-advanced">Python Advanced</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>也许写代码的时候没有写过元类，但是它的概念和原理还是要理解。
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
             
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/">
-          Python高级开发技术栈
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-25T15:17:25&#43;08:00">
-        
-  六月 25, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python-advanced">Python Advanced</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>为自己准备的Python高级开发技术栈。</p>
-
-<p></p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
           
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/%E5%B8%B8%E7%94%A8%E9%93%BE%E6%8E%A5/" data-tooltip="常用链接">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
             
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/">
-          为什么写博客
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-24T18:13:09&#43;08:00">
-        
-  六月 24, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>好的文章，不仅要能自己理解，还要给别人讲的简单，明白。</p>
-
-<p></p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-          
-
-        </section>
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
@@ -483,6 +385,72 @@
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/%E5%B8%B8%E7%94%A8%E9%93%BE%E6%8E%A5/" data-tooltip="常用链接">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F06%2Fpython%25E5%25B9%25B6%25E5%258F%2591%25E7%25BC%2596%25E7%25A8%258B%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -671,8 +639,13 @@ $(document).ready(function() {
 </script>
 
 
+  
+    
+  
+
 
 
     
   </body>
 </html>
+
