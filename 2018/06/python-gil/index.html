@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>为什么写博客</title>
+    <title>Python GIL</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
@@ -30,20 +30,17 @@
     
 
     
-    <meta name="description" content="好的文章，不仅要能自己理解，还要给别人讲的简单，明白。
-
+    <meta name="description" content="一个Python解释器同一时间只有一个线程在执行。
 ">
-    <meta property="og:description" content="好的文章，不仅要能自己理解，还要给别人讲的简单，明白。
-
+    <meta property="og:description" content="一个Python解释器同一时间只有一个线程在执行。
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="为什么写博客">
-    <meta property="og:url" content="/2018/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/">
+    <meta property="og:title" content="Python GIL">
+    <meta property="og:url" content="/2018/06/python-gil/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="好的文章，不仅要能自己理解，还要给别人讲的简单，明白。
-
+    <meta name="twitter:description" content="一个Python解释器同一时间只有一个线程在执行。
 ">
     
       <meta name="twitter:creator" content="@snail_mu">
@@ -221,39 +218,81 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      为什么写博客
+      Python GIL
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-06-24T18:13:09&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-06-29T20:05:25&#43;08:00">
         
-  六月 24, 2018
+  六月 29, 2018
 
       </time>
     
     
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://363549406.github.io/categories/python%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b">Python并发编程</a>
+    
+  
+
   </div>
 
 </div>
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>好的文章，不仅要能自己理解，还要给别人讲的简单，明白。</p>
+              <p>一个Python解释器同一时间只有一个线程在执行。
+</p>
 
-<p></p>
+<p>在CPython中有全局解释器锁(GIL，Global Interpreter Lock)。线程的 <strong>一个执行周期</strong> 需要完成获取GIL，执行，释放GIL三个步骤。如果一个线程获取了GIL但是还没有释放，那在这个时间段内其它线程就没有办法执行。这也是为什么说 <strong>一个Python解释器同一时间只能有一个线程在执行</strong>。</p>
 
-<p>我以前不写博客，但我会记笔记。笔记主要以编排后的摘录为主。现在我试着用自己的话把理解的东西说出来。</p>
+<p>在线程执行过程中，如下情况会释放GIL（使用线程处理任务会经过线程的多个执行周期）：</p>
 
-<p>我写博客主要是为了帮助自己加强理解。而博客这种公之于众的形式也会让我更注意语言的表达。</p>
+<ol>
+<li>当遇到I/O操作(read、write、send、recv等)时释放GIL。</li>
+<li>对于不执行I/O操作的情况。执行<code>sys.getcheckinterval()</code>次“tick”后检查是否需要释放GIL。</li>
+</ol>
 
-<p>技术成长的路要自己践行，不怕有瑕疵，不怕有错误。</p>
+<p>同一时间只能有一个线程在执行。那是不是就像网上有种说法：“Python多线程是鸡肋” ？[1]。</p>
+
+<p>初学Python的时候看到一些说法：Python多线程反而会让程序更慢；Python不能充分利用多核CPU。</p>
+
+<ol>
+<li>说Python不能充分利用多核CPU。其实可以通过开多进程来利用多核CPU。</li>
+<li>在单核CPU上说用多线程会让程序变慢。对于计算密集型的任务是会变慢，但是对于I/O密集型的任务，多线程还是会让CPU的利用率变高。</li>
+</ol>
+
+<!--GIL做什么了，怎么做的-->
+
+<h1 id="参考资料">参考资料</h1>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Obt-vMVdM8s&amp;t=431s">YouTube: understanding the Python GIL By David Beazley</a> (<a href="http://www.dabeaz.com/python/UnderstandingGIL.pdf">PPT</a>)
+
+<ul>
+<li>视频开始举了一个计数的例子，用while循环实现从1亿开始倒数。在使用两个线程时，时间不但没减半反而增加了。作者只是用来引出GIL。</li>
+<li>我不觉得GIL不好。</li>
+</ul></li>
+</ul>
               
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a>
+
+                  </div>
+                
               
             
             
@@ -263,7 +302,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/" data-tooltip="Python高级开发技术栈">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -271,7 +310,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" data-tooltip="Python并发编程">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -289,7 +328,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/python-gil/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -327,7 +366,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/" data-tooltip="Python高级开发技术栈">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -335,7 +374,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" data-tooltip="Python并发编程">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -353,7 +392,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/python-gil/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -377,7 +416,7 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F06%2F%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E5%2586%2599%25E5%258D%259A%25E5%25AE%25A2%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F06%2Fpython-gil%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
