@@ -257,7 +257,7 @@
 <li><code>push(item)</code> 在堆的顶部添加一个元素，返回None。</li>
 <li><code>pop()</code> 从堆的顶部移除一个元素，返回移除的元素。</li>
 <li><code>peek()</code> 返回堆顶部元素，不从堆中移除。</li>
-<li><code>isEmpty()</code> 判断堆是否为空，返回True或者False。</li>
+<li><code>is_empty()</code> 判断堆是否为空，返回True或者False。</li>
 <li><code>size()</code> 返回堆中元素个数。</li>
 </ul>
 
@@ -266,7 +266,7 @@
 <pre><code class="language-python">class Stack:
     def __init__(self):
         self.items = []
-    def isEmpty(self):
+    def is_empty(self):
         return self.items == []
     def push(self, item):
         self.items.append(item)
@@ -311,19 +311,104 @@
         if ch in pairs.values():
             stack.push(ch)
         elif ch in pairs:
-            if stack.isEmpty() or stack.pop() != pairs[ch]:
+            if stack.is_empty() or stack.pop() != pairs[ch]:
                 return False
-    return stack.isEmpty()
+    return stack.is_empty()
 &gt;&gt;&gt; assert(is_valid('{ { ( [ ] [ ] ) } ( ) }')) == True
 </code></pre>
 
-<h5 id="前缀-中缀-后缀表达式">前缀、中缀、后缀表达式</h5>
+<h5 id="中缀-前缀-后缀表达式">中缀、前缀、后缀表达式</h5>
 
-<p>问题描述：</p>
+<p>问题描述：将中缀表达式转换成前缀、后缀表达式[3]。</p>
 
 <p>解决思路：</p>
 
-<pre><code class="language-python"></code></pre>
+<ul>
+<li>在转换为后缀表达式时将操作符压入堆
+
+<ul>
+<li>操作符有优先级；</li>
+<li>当遇到<code>)</code>时，应该在堆中一直找到<code>(</code>，其中<code>(</code>和<code>)</code>都不会保留。</li>
+<li>当遇到优先级小的操作符时，应该在堆中一直pop直到找到比它优先级低的操作符；</li>
+<li>最后堆中操作符应该全部被取出。</li>
+</ul></li>
+<li>在转换为前缀表达式时将操作数和操作符压如不同的堆
+
+<ul>
+<li>当遇到优先级更低的操作符，把操作符和操作数组合成新的操作数，存起来 new_operand</li>
+<li>最后操作符堆中为空，操作数堆中应该只有一个元素，最终结果</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-python">def infix_to_postfix(expr):
+    prec = {'*': 3, '/': 3, '+': 2, '-': 2, '(': 1}
+    op_stack = Stack()
+    postfix_list = []
+
+    for token in expr.split():
+        if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+            postfix_list.append(token)
+        elif token == '(':
+            op_stack.push(token)
+        elif token == ')':
+            while op_stack.peek() != '(':
+                postfix_list.append(op_stack.pop())
+        else:
+            while not op_stack.is_empty() and \
+                prec[op_stack.peek()] &gt;= prec[token]:
+                    postfix_list.append(op_stack.pop())
+            op_stack.push(token)
+    while not op_stack.is_empty():
+        postfix_list.append(op_stack.pop())
+    return ' '.join(postfix_list)
+&gt;&gt;&gt; assert(infix_to_postfix('A * B + C * D')) == 'A B * C D * +'
+&gt;&gt;&gt; assert(infix_to_postfix('( A + B ) * C - ( D - E ) * ( F + G )')) == 'A B + C * D E - F G + * -'
+</code></pre>
+
+<pre><code class="language-python">def infix_to_prefix(expr):
+    prec = {'*': 3, '/': 3, '+': 2, '-': 2, '(': 1}
+    operator_stack = Stack()
+    operand_stack = Stack()
+
+    def new_operand(operator_s, operand_s):
+        oper = operator_s.pop()
+        right = operand_s.pop()
+        left = operand_s.pop()
+        return ' '.join([oper, left, right])
+
+    for token in expr.split():
+        if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+            operand_stack.push(token)
+        elif token == ')':
+            while operator_stack.peek() != '(':
+                operand_stack.push(new_operand(operator_stack, operand_stack))
+            operator_stack.pop() # pop '('
+        elif operator_stack.is_empty() or token == '(' or prec[token] &gt; prec[operator_stack.peek()]:
+            operator_stack.push(token)
+        elif prec[token] &lt;= prec[operator_stack.peek()]:
+            while not operator_stack.is_empty() and prec[token] &lt;= prec[operator_stack.peek()]:
+                operand_stack.push(new_operand(operator_stack, operand_stack))
+            operator_stack.push(token)
+
+    while not operator_stack.is_empty():
+        operand_stack.push(new_operand(operator_stack, operand_stack))
+
+    return operand_stack.peek()
+&gt;&gt;&gt; print infix_to_prefix('A + B')
++ A B
+&gt;&gt;&gt; print infix_to_prefix('A + B * C')
++ A * B C
+&gt;&gt;&gt; print infix_to_prefix('( A + B ) * C')
+* + A B C
+&gt;&gt;&gt; print infix_to_prefix('A + B * C + D')
++ + A * B C D
+&gt;&gt;&gt; print infix_to_prefix('( A + B ) * ( C + D )')
+* + A B + C D
+&gt;&gt;&gt; print infix_to_prefix('A * B + C * D')
++ * A B * C D
+&gt;&gt;&gt; print infix_to_prefix('A + B + C + D')
++ + + A B C D
+</code></pre>
 
 <p><strong>参考资料</strong>：</p>
 
@@ -335,7 +420,7 @@
 
 <hr />
 
-<p>注[1]: 重点知道数据结构有哪些操作。在实现上没有考虑pop前检查堆是不是为空等。</p>
+<p>注[1]: 重点知道数据结构有哪些操作。在实现上没有考虑pop前检查堆是不是为空等。<strong>参考资料3中后多种实现</strong>。</p>
 
 <p>注[2]: 开合符号和闭合符号有正确的对应关系。</p>
 
@@ -343,6 +428,9 @@
 [ [ { { ( ( ) ) } } ] ]
 [ ] [ ] [ ] ( ) { }
 </code></pre>
+
+<p>注[3]: 中缀是指操作符在两个操作数中间，好比<code>A + B</code>。如果将操作符移到两个操作数之前，表达式则被改写为<code>+ A B</code>这种前缀的形式。同理，后缀的形式为<code>A B +</code>。将中缀改为前缀或后缀的好处是，前缀和后缀表达式可以在没有括号的情况下依旧准确的表达复杂表达式的计算顺序。更多说明可以参见，参考资料1中3.9章节。如<code>+ + A * B C D</code>此类前缀表达式，只需在遇到操作符后有两个操作数的时候执行计算。
+<code>+ + A (B * C) D</code> -&gt; <code>+ (A + (B * C)) D</code> -&gt; <code>((A + (B * C)) + D)</code></p>
               
             </div>
           </div>
