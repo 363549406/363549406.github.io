@@ -1,9 +1,5 @@
 
 
-  
-    
-  
-
 
   
 
@@ -22,26 +18,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Python中的元类</title>
+    <title>Posts</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://363549406.github.io/favicon.png">
     
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://363549406.github.io/post/index.xml">
+    
 
     
-    <meta name="description" content="也许写代码的时候没有写过元类，但是它的概念和原理还是要理解。
-">
-    <meta property="og:description" content="也许写代码的时候没有写过元类，但是它的概念和原理还是要理解。
-">
+    <meta name="description" content="Snail Mu Blog">
+    <meta property="og:description" content="Snail Mu Blog">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Python中的元类">
-    <meta property="og:url" content="/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/">
+    <meta property="og:title" content="Posts">
+    <meta property="og:url" content="/post/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="也许写代码的时候没有写过元类，但是它的概念和原理还是要理解。
-">
+    <meta name="twitter:description" content="Snail Mu Blog">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -78,7 +73,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
+      <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://363549406.github.io/">Snail Mu</a>
@@ -98,7 +93,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="4">
+      <nav id="sidebar" data-behavior="1">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -208,346 +203,81 @@
 
       
 
-      <div id="main" data-behavior="4"
+      <div id="main" data-behavior="1"
         class="
                hasCoverMetaIn
                ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+        <section class="postShorten-group main-content-wrap">
           
           
-            <div class="post-header main-content-wrap text-left">
+            
   
-    <h1 class="post-title" itemprop="headline">
-      Python中的元类
-    </h1>
+    
+      
+        
+      
+    
   
+
+
   
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://363549406.github.io/2018/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/">
+          为什么写博客
+        </a>
+      </h1>
+      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-06-25T17:51:25&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-06-24T18:13:09&#43;08:00">
         
-  六月 25, 2018
+  六月 24, 2018
 
       </time>
     
     
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python-advanced">Python Advanced</a>
-    
-  
-
   </div>
 
-</div>
-          
-          <div class="post-content markdown" itemprop="articleBody">
-            <div class="main-content-wrap">
-              <p>也许写代码的时候没有写过元类，但是它的概念和原理还是要理解。
-</p>
-
-<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
-<ul>
-<li><a href="#type">type()</a></li>
-<li><a href="#metaclass">metaclass</a>
-<ul>
-<li><a href="#如何创建自己的元类">如何创建自己的元类</a></li>
-<li><a href="#metaclass-属性"><code>__metaclass__</code>属性</a></li>
-<li><a href="#写一个元类">写一个元类</a></li>
-</ul></li>
-<li><a href="#什么时候需要用元类">什么时候需要用元类</a></li>
-<li><a href="#reference">reference</a></li>
-</ul>
-</nav>
-
-<h1 id="type">type()</h1>
-
-<p>类是元类的实例。因为在Python中万物皆对象，其实类和元类也都是对象。在Python中默认的元类是<code>type</code>。</p>
-
-<p>当<code>type</code>作为一个函数时，它既可以查看对象所属的类，还可以创建一个类。除此之外<code>type</code>也是一个类，是它自己的类。</p>
-
-<p>使用<code>type</code>查看对象所属的类。同时可以看到<code>type</code>的类就是<code>type</code>。</p>
-
-<pre><code class="language-python">In [29]: class Foobar(object):
-    ...:     pass
-    ...:
-
-In [30]: foo = Foobar()
-
-In [31]: type(foo)
-Out[31]: __main__.Foobar
-
-In [32]: type(Foobar)
-Out[32]: type
-
-In [33]: type(type)
-Out[33]: type
-</code></pre>
-
-<p>正是因为前面提到的类也是对象，所以也可以动态的创建类。使用<code>type</code>动态创建类，需要的参数依次为：类名，父类的元组，属性字典。</p>
-
-<pre><code class="language-python">In [41]: def hello(self, name=None):
-    ...:     return 'hello, {}'.format(name or self.name)
-
-In [43]: SayHello = type('SayHello', (object,), {'name': 'Snail', 'hello': hello})
-
-In [44]: SayHello
-Out[44]: __main__.SayHello
-
-In [45]: action = SayHello()
-
-In [46]: action.hello()
-Out[46]: 'hello, Snail'
-
-In [47]: action.hello('world')
-Out[47]: 'hello, world'
-</code></pre>
-
-<h1 id="metaclass">metaclass</h1>
-
-<p>使用<code>type()</code>可以动态创建类。这也是metaclass的作用，控制类的创建行为。</p>
-
-<h2 id="如何创建自己的元类">如何创建自己的元类</h2>
-
-<p>在Python中，通过创建继承自<code>type</code>的类来定义新的元类。无论是Python2还是Python3，我们都可以通过下面的方式创建自己的元类</p>
-
-<pre><code class="language-python">class MyMeta(type):
-    pass
-</code></pre>
-
-<p>使用元类创建类时，Python2是使用添加<code>__metaclass__</code>属性的方式。</p>
-
-<pre><code class="language-python">class MyClass(object):
-    __metaclass__ = MyMeta
-    pass
-</code></pre>
-
-<p>而在Python3中是在类定义中添加<code>metaclass</code>参数。</p>
-
-<pre><code class="language-python">class MyClass(object, metaclass=MyMeta):
-    pass
-</code></pre>
-
-<h2 id="metaclass-属性"><code>__metaclass__</code>属性</h2>
-
-<p>我们已经知道Python2使用<code>__metaclass__</code>属性来创建类。所以在真正创建类之前Python会先查找<code>__metaclass__</code>属性。查找的顺序：</p>
-
-<ol>
-<li>在类定义中查找</li>
-<li>在父类中查找[2] [3]</li>
-<li>在MODULE层查找<code>__metaclass__</code>属性。只有在Python2中，并且创建的类是old-style类时[1]。</li>
-</ol>
-
-<h2 id="写一个元类">写一个元类</h2>
-
-<p>下面我们试着真正的写一个元类。假设一个问题：“我们希望模块中所有类的属性都是大写”。</p>
-
-<pre><code class="language-python">class UpperAttrMetaclass(type):
-    def __new__(cls, clsname, bases, dct):
-        uppercase_attr = {}
-        for name, val in dct.items():
-            if not name.startswith('__'):
-                uppercase_attr[name.upper()] = val
-            else:
-                uppercase_attr[name] = val
-        return super(UpperAttrMetaclass, cls).__new__(cls, clsname, bases, uppercase_attr)
-</code></pre>
-
-<p>试着去理解，如果有看不明白的，可以在了解Python对象实例化后再回来理解这个例子。</p>
-
-<h1 id="什么时候需要用元类">什么时候需要用元类</h1>
-
-<p>一种流行的说法</p>
-
-<blockquote>
-<p>Metaclasses are deeper magic that 99% of users should never worry about. If you wonder whether you need them, you don&rsquo;t (the people who actually need them know with certainty that they need them, and don&rsquo;t need an explanation about why).
-&ndash; Python Guru Tim Peters</p>
-</blockquote>
-
-<p>其实在日常使用中，你有可能用过metaclass。</p>
-
-<ul>
-<li>Django中ORM。Django在models.Model模块中定义了<code>__metaclass__</code></li>
-<li>acb模块中的ABCMeta</li>
-</ul>
-
-<h1 id="reference">reference</h1>
-
-<ul>
-<li><a href="https://stackoverflow.com/questions/100003/what-are-metaclasses-in-python">What is a metaclass in Python ?</a>
-
-<ul>
-<li>回答中e-satis的回答对我帮助很大。</li>
-</ul></li>
-<li><a href="https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/">Understanding Python metaclasses</a>
-
-<ul>
-<li>作者使用的是Python3。并且文章中很大篇幅讲解了Python实例化过程。Python对象实例化我会单独写一篇文章。</li>
-</ul></li>
-<li><a href="https://www.cnblogs.com/huchong/p/8260151.html#_lab2_2_0">类和对象的创建过程</a></li>
-</ul>
-
-<hr />
-
-<p>注[1]：old-style类是指<code>class MyClass: pass</code>这种类定义方式。对应的new-style是指<code>class MyClass(object): pass</code>。</p>
-
-<pre><code class="language-python">class OutMetaclass(type):
-    def __new__(cls, clsname, bases, attrs):
-        print 'OutMetaclass', clsname
-        return super(OutMetaclass, cls).__new__(cls, clsname, bases, attrs)
-
-__metaclass__ = OutMetaclass
-
-class NewClass(object):
-    pass
-
-class OldClass:
-    pass
-</code></pre>
-
-<p>得到的结果</p>
-
-<pre><code class="language-shell">➜  test python A.py
-OutMetaclass OldClass
-</code></pre>
-
-<p>注[2]：我在Python2.7中试验过一种写法（为了举例子）</p>
-
-<pre><code class="language-python">class OutMetaclass(type):
-    def __new__(cls, clsname, bases, attrs):
-        print 'OutMetaclass', clsname
-        return super(OutMetaclass, cls).__new__(cls, clsname, bases, attrs)
-
-__metaclass__ = OutMetaclass
-
-class InMetaclass(type):
-    def __new__(cls, clsname, bases, attrs):
-        print 'InMetaclass', clsname
-        return super(InMetaclass, cls).__new__(cls, clsname, bases, attrs)
-
-class MyClass(object):
-    __metaclass__ = OutMetaclass
-
-class My2Class(MyClass):
-    __metaclass__ = InMetaclass
-</code></pre>
-
-<p>会得到如下错误（这是需要注意的点）：</p>
-
-<pre><code class="language-shell">➜  test python A.py
-OutMetaclass MyClass
-InMetaclass My2Class
-Traceback (most recent call last):
-  File &quot;A.py&quot;, line 19, in &lt;module&gt;
-    class My2Class(MyClass):
-  File &quot;A.py&quot;, line 13, in __new__
-    return super(InMetaclass, cls).__new__(cls, clsname, bases, attrs)
-TypeError: Error when calling the metaclass bases
-    metaclass conflict: the metaclass of a derived class must be a (non-strict) subclass of the metaclasses of all its bases
-</code></pre>
-
-<p>注[3]：是先在module这种全局中查找，还是先在父类中查找？Stack Overflow中说先在module层查找。但是我的实验结果是先在父类中查找。</p>
-
-<pre><code class="language-python">class OutMetaclass(type):
-    def __new__(cls, clsname, bases, attrs):
-        print 'OutMetaclass', clsname
-        return super(OutMetaclass, cls).__new__(cls, clsname, bases, attrs)
-
-__metaclass__ = OutMetaclass
-
-class InMetaclass(type):
-    def __new__(cls, clsname, bases, attrs):
-        print 'InMetaclass', clsname
-        return super(InMetaclass, cls).__new__(cls, clsname, bases, attrs)
-
-class OldClass:
-    __metaclass__ = InMetaclass
-
-class SubOldClass(OldClass):
-    pass
-</code></pre>
-
-<p>结果如下（说明先在父类中查找）：</p>
-
-<pre><code class="language-shell">➜  test python A.py
-InMetaclass OldClass
-InMetaclass SubOldClass
-</code></pre>
-              
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">标签</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/python/">python</a>
-
-                  </div>
-                
-              
-            
-            
-  <div class="post-actions-wrap">
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/%E5%B8%B8%E7%94%A8%E9%93%BE%E6%8E%A5/" data-tooltip="常用链接">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/" data-tooltip="Python高级开发技术栈">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>好的文章，不仅要能自己理解，还要给别人讲的简单，明白。</p>
+
+<p></p>
+      <p>
+        <a href="https://363549406.github.io/2018/06/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/" class="postShorten-excerpt_link link">阅读全文</a>
         
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/">
-              <i class="fa fa-twitter"></i>
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+          
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://363549406.github.io/post/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>上一页</span>
             </a>
           </li>
         
-      
-      
-      <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
+      
+      <li class="pagination-number">第 2 页 共 2 页</li>
     </ul>
   </div>
 
 
-            
-              
-            
-          </div>
-        </article>
+        </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
@@ -555,72 +285,6 @@ InMetaclass SubOldClass
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-        
-  <div class="post-actions-wrap">
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/%E5%B8%B8%E7%94%A8%E9%93%BE%E6%8E%A5/" data-tooltip="常用链接">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/" data-tooltip="Python高级开发技术栈">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-      
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-
-      </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-  <i id="btn-close-shareoptions" class="fa fa-close"></i>
-  <ul class="share-options">
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F06%2Fpython%25E4%25B8%25AD%25E7%259A%2584%25E5%2585%2583%25E7%25B1%25BB%2F">
-          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -862,10 +526,6 @@ $(document).ready(function() {
 });
 </script>
 
-
-  
-    
-  
 
 
 
