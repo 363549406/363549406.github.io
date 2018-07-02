@@ -6,10 +6,20 @@
     <description>Recent content in Python on Snail Mu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 25 Jun 2018 17:51:25 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Jul 2018 21:20:20 +0800</lastBuildDate>
     
 	<atom:link href="https://363549406.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python的对象实例化</title>
+      <link>https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/</link>
+      <pubDate>Mon, 02 Jul 2018 21:20:20 +0800</pubDate>
+      
+      <guid>https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/</guid>
+      <description>&lt;p&gt;我们经常创建对象，但是一个对象完整的实例化过程包含哪些步骤？
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Python中的元类</title>
