@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Snail Mu</title>
+    <link>https://363549406.github.io/categories/linux/</link>
+    <description>Recent content in Linux on Snail Mu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 05 Jul 2018 23:23:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://363549406.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux文件系统</title>
+      <link>https://363549406.github.io/2018/07/linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 05 Jul 2018 23:23:25 +0800</pubDate>
+      
+      <guid>https://363549406.github.io/2018/07/linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</guid>
+      <description>&lt;p&gt;这篇文章帮助你快速了解Linux文件系统
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

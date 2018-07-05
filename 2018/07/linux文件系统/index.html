@@ -1,5 +1,9 @@
 
 
+  
+    
+  
+
 
   
 
@@ -18,25 +22,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Python Advanced</title>
+    <title>Linux文件系统</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://363549406.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://363549406.github.io/categories/python-advanced/index.xml">
-    
 
     
-    <meta name="description" content="Snail Mu Blog">
-    <meta property="og:description" content="Snail Mu Blog">
+    <meta name="description" content="这篇文章帮助你快速了解Linux文件系统
+">
+    <meta property="og:description" content="这篇文章帮助你快速了解Linux文件系统
+">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Python Advanced">
-    <meta property="og:url" content="/categories/python-advanced/">
+    <meta property="og:title" content="Linux文件系统">
+    <meta property="og:url" content="/2018/07/linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="Snail Mu Blog">
+    <meta name="twitter:description" content="这篇文章帮助你快速了解Linux文件系统
+">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -73,7 +78,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://363549406.github.io/">Snail Mu</a>
@@ -93,7 +98,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -212,44 +217,26 @@
 </nav>
 
       
-        
 
-      
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
+    <h1 class="post-title" itemprop="headline">
+      Linux文件系统
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/">
-          Python的对象实例化
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-02T21:20:20&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-05T23:23:25&#43;08:00">
         
-  七月 2, 2018
+  七月 5, 2018
 
       </time>
     
@@ -258,141 +245,197 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/python-advanced">Python Advanced</a>
+      <a class="category-link" href="https://363549406.github.io/categories/linux">Linux</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>我们经常创建对象，但是一个对象完整的实例化过程包含哪些步骤？
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>这篇文章帮助你快速了解Linux文件系统
 </p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/" class="postShorten-excerpt_link link">阅读全文</a>
+
+<p>一台CentOS7操作系统的目录结构如下：</p>
+
+<p><img src="https://363549406.github.io/images/Linux文件系统.png" alt="Linux文件系统结构" /></p>
+
+<h1 id="bin">/bin</h1>
+
+<p>包含一些二进制文件，即可运行的应用程序。如ls、cd等。文件系统树的其他部分有更多的bin目录。</p>
+
+<h1 id="boot">/boot</h1>
+
+<p>包含系统启动所需要的问题。<strong>DO NOT TOUCH !</strong></p>
+
+<h1 id="dev">/dev</h1>
+
+<p>包含设备文件（device files）。是一个虚拟的目录（virtual directory）。</p>
+
+<h1 id="etc">/etc</h1>
+
+<p>得名于Unix的“etcetera”（诸如此类），是不确定应该放在哪这类文件的存放处。<strong>现在，主要用来存放系统配置文件。</strong></p>
+
+<h1 id="home">/home</h1>
+
+<p>用户个人目录，如<code>/home/snail</code>。</p>
+
+<h1 id="lib">/lib</h1>
+
+<p>库文件所在的地方。包含所有重要的内核模块。</p>
+
+<h1 id="lost-found">/lost+found</h1>
+
+<p>不在FHS[2]中。运行fsck（文件系统检查和修复命令）查找到的文件会放在这里。</p>
+
+<h1 id="media">/media</h1>
+
+<p>插入外部存储设备（如U盘、USB硬盘、SD卡、外部SSD等）时，将自动挂载在/media目录。<strong>在使用Linux如Ubuntu系统Desktop时会经常遇到。</strong></p>
+
+<h1 id="mnt">/mnt</h1>
+
+<p>手动挂载存储设备或分区的地方。<strong>历史残余，现在不常用。</strong></p>
+
+<h1 id="opt">/opt</h1>
+
+<p>通常是你编译软件（即，从源代码构建）的地方。好比在Ubunu上装个google或者teamviewer，gitlab。</p>
+
+<p>FYI：应用程序和库的另一个安装软件的地方/usr/local。</p>
+
+<h1 id="proc">/proc</h1>
+
+<p>同/dev一样也是一个虚拟的目录。包含计算机信息，如正在运行CPU、操作系统内核、内存信息。</p>
+
+<h1 id="root">/root</h1>
+
+<p>超级用户（管理员用户）的主目录。</p>
+
+<h1 id="run">/run</h1>
+
+<p>系统运行时需要的数据。/var/run指向/run，/run是2011年左右新增的目录。</p>
+
+<h1 id="sbin">/sbin</h1>
+
+<p>类似/bin，但它包含的应用程序只有超级用户(s)才需要用到的。</p>
+
+<h1 id="srv">/srv</h1>
+
+<p>包含服务器的数据，如在Linux上运行www，可将HTML文件放在/srv/www或者srv/html。<strong>现在基本不用，改放在了/var/www中。</strong></p>
+
+<h1 id="sys">/sys</h1>
+
+<p>和/proc和/dev虚拟目录一样，也包含连接到计算机的设备的信息。<strong>需要管理员权限来修改，最好不要动</strong>。</p>
+
+<h1 id="tmp">/tmp</h1>
+
+<p>存放临时文件，是少数根目录下不需要超级用户就能操作的目录之一。</p>
+
+<h1 id="usr">/usr</h1>
+
+<p>如今，/usr包含了大量目录，如应用程序、库、文档等[1]。</p>
+
+<p>/usr目录下还有bin，sbin，lib目录。早期，/bin目录下是一些系统安装时预装的命令，而/usr/bin目录下是用户自己安装的命令或软件。<strong>现在，许多Linux发行版把所有东西放在/usr/bin，并让/bin指向/usr/bin，/sbin，/lib也是一样。</strong></p>
+
+<h1 id="var">/var</h1>
+
+<p>最初这么命名是因为存储variable data files，/var/log就是其中之一。</p>
+
+<p>参考资料：</p>
+
+<ul>
+<li><a href="https://www.linux.com/blog/learn/intro-to-linux/2018/4/linux-filesystem-explained">The Linux Filesystem Explained</a>（<a href="https://linux.cn/article-9798-1.html">中文版</a>）</li>
+<li><a href="https://www.youtube.com/watch?v=HIXzJ3Rz9po">Learning the Linux File System</a></li>
+<li><a href="https://wiki.debian.org/FilesystemHierarchyStandard">Debian Filesystem Hierarchy Standard</a></li>
+</ul>
+
+<p>扩展阅读：</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Unix_filesystem#Conventional_directory_layout">Wikipedia 对每个目录的用途进行了总结</a></li>
+</ul>
+
+<p><img src="https://363549406.github.io/images/标准Unix文件系统.png" alt="标准Unix文件系统" /></p>
+
+<hr />
+
+<p>注[1]: /usr的全称是UNIX Source Repository（<a href="https://wiki.debian.org/FilesystemHierarchyStandard">Source</a>）还是User System Resources（<a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html">Source</a>）？</p>
+
+<p>注[2]: FHS：Filesystem Hierarchy Standard</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/linux/">Linux</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92recursion/" data-tooltip="数据结构与算法之递归Recursion">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-      </p>
-    </div>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
   </div>
-  
-</article>
+
 
             
               
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/">
-          Python中的元类
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-25T17:51:25&#43;08:00">
-        
-  六月 25, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python-advanced">Python Advanced</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>也许写代码的时候没有写过元类，但是它的概念和原理还是要理解。
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
             
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/">
-          Python高级开发技术栈
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-25T15:17:25&#43;08:00">
-        
-  六月 25, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python-advanced">Python Advanced</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>为自己准备的Python高级开发技术栈。</p>
-
-<p></p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
-            
-
-          </section>
-        
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
@@ -400,6 +443,72 @@
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92recursion/" data-tooltip="数据结构与算法之递归Recursion">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2Flinux%25E6%2596%2587%25E4%25BB%25B6%25E7%25B3%25BB%25E7%25BB%259F%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -674,6 +783,10 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+  
 
 
 
