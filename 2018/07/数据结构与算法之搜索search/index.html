@@ -30,9 +30,9 @@
     
 
     
-    <meta name="description" content="算法第二讲搜索(search)
+    <meta name="description" content="算法第二讲搜索(search) [1]
 ">
-    <meta property="og:description" content="算法第二讲搜索(search)
+    <meta property="og:description" content="算法第二讲搜索(search) [1]
 ">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="数据结构与算法之搜索Search">
@@ -40,7 +40,7 @@
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="算法第二讲搜索(search)
+    <meta name="twitter:description" content="算法第二讲搜索(search) [1]
 ">
     
       <meta name="twitter:creator" content="@snail_mu">
@@ -234,7 +234,7 @@
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-06T00:05:25&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-06T14:21:25&#43;08:00">
         
   七月 6, 2018
 
@@ -255,8 +255,88 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>算法第二讲搜索(search)
+              <p>算法第二讲搜索(search) [1]
 </p>
+
+<p>搜索返回True和False来表示元素是否在集合中。在Python中使用in这种简单的方式就能判断元素是否在list中。<strong>但是，本文关注的是底层的各种搜索方法。</strong></p>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#顺序搜索">顺序搜索</a></li>
+<li><a href="#二分搜索">二分搜索</a></li>
+<li><a href="#对比">对比</a></li>
+</ul>
+</nav>
+
+<h1 id="顺序搜索">顺序搜索</h1>
+
+<p>搜索方式：在线性数据结构中，如list中，依照元素的顺序依次查找。</p>
+
+<pre><code class="language-python">def sequential_search(alist, item):
+    pos = 0
+    found = False
+
+    while pos &lt; len(alist) and not found:
+        if alist[pos] == item:
+            found = True
+        else:
+            pos = pos + 1
+    return found
+</code></pre>
+
+<p>复杂度：O(n)。如果item在集合中，最好情况是对比1次，最坏情况是对比n次。如果item不在集合中，需要对比n次。</p>
+
+<h1 id="二分搜索">二分搜索</h1>
+
+<p>搜索方式：<strong>对于排序过的队列</strong>，通过比较队列中间元素和item的大小相等关系，来达到一次排除一半待比较元素的目的[2]。</p>
+
+<pre><code class="language-python">def binary_search(alist, item):
+    first = 0
+    last = len(alist)-1
+    found = False
+
+    while first &lt; last and not found:
+        midpoint = (first + last) // 2
+        if alist[midpoint] == item:
+            found = True
+        else:
+            if item &lt; alist[midpoint]:
+                last = midpoint - 1
+            else:
+                first = midpoint + 1
+    return found
+</code></pre>
+
+<p>复杂度：O(logN)。每对比一次，需要对比的元素就减半n/2。假设，对比i次之后，所剩元素为1。n = 2的i次方，求解得，i=logN。</p>
+
+<h1 id="对比">对比</h1>
+
+<p>如果想使用二分搜索，要时刻考虑到排序的开销是否值得。好比，如果集合不是很大，可能就不太需要二分搜索；又好比，这个集合虽然不是特别大，但是需要经常搜索，那一次排序可能就值得。</p>
+
+<p>参考资料：</p>
+
+<ul>
+<li><a href="http://interactivepython.org/runestone/static/pythonds/SortSearch/toctree.html">Problem Solving with Algorithms and Data Structures - Chapter 5</a></li>
+</ul>
+
+<hr />
+
+<p>注[1]: 其实我更喜欢叫查找。</p>
+
+<p>注[2]: 将需要对比的元素减少一半，这是将一个大问题转换成同样类型的小问题。也可以使用递归的方式来是实现。</p>
+
+<pre><code class="language-python">def binary_search_recursion(alist, item):
+    # base case
+    if len(alist) == 0:
+        return False
+    midpoint = len(alist) // 2
+    if alist[midpoint] == item:
+        return True
+    elif alist[midpoint] &gt; item:
+        return binary_search_recursion(alist[:midpoint-1], item)
+    else:
+        return binary_search_recursion(alist[midpoint+1:], item)
+</code></pre>
               
             </div>
           </div>
@@ -316,7 +396,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -380,7 +460,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -464,7 +544,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>算法第二讲搜索(search)
+              <div class="media-content hide-xs font-merryweather"><p>算法第二讲搜索(search) [1]
 </p></div>
             </div>
             <div style="clear:both;"></div>
