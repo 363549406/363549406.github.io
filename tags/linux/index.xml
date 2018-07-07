@@ -6,10 +6,20 @@
     <description>Recent content in Linux on Snail Mu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 Jul 2018 23:23:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jul 2018 15:23:25 +0800</lastBuildDate>
     
 	<atom:link href="https://363549406.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux网络状态（草稿）</title>
+      <link>https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81%E8%8D%89%E7%A8%BF/</link>
+      <pubDate>Sat, 07 Jul 2018 15:23:25 +0800</pubDate>
+      
+      <guid>https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81%E8%8D%89%E7%A8%BF/</guid>
+      <description>&lt;p&gt;这篇文章帮助你了解Linux服务器的网络信息
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux文件系统</title>
