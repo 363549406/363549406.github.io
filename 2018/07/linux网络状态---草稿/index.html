@@ -1,5 +1,9 @@
 
 
+  
+    
+  
+
 
   
 
@@ -18,25 +22,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Posts</title>
+    <title>Linux网络状态 - 草稿</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://363549406.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://363549406.github.io/post/index.xml">
-    
 
     
-    <meta name="description" content="Snail Mu Blog">
-    <meta property="og:description" content="Snail Mu Blog">
+    <meta name="description" content="这篇文章帮助你了解Linux服务器的网络信息
+">
+    <meta property="og:description" content="这篇文章帮助你了解Linux服务器的网络信息
+">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Posts">
-    <meta property="og:url" content="/post/">
+    <meta property="og:title" content="Linux网络状态 - 草稿">
+    <meta property="og:url" content="/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81---%E8%8D%89%E7%A8%BF/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="Snail Mu Blog">
+    <meta name="twitter:description" content="这篇文章帮助你了解Linux服务器的网络信息
+">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -73,7 +78,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://363549406.github.io/">Snail Mu</a>
@@ -93,7 +98,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -213,40 +218,25 @@
 
       
 
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
+    <h1 class="post-title" itemprop="headline">
+      Linux网络状态 - 草稿
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/">
-          数据结构与算法之双向队列Deque
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-02T00:08:00&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-07T15:23:25&#43;08:00">
         
-  七月 2, 2018
+  七月 7, 2018
 
       </time>
     
@@ -255,385 +245,189 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
+      <a class="category-link" href="https://363549406.github.io/categories/linux">Linux</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>线性数据结构（linear data structure）第三讲双向队列（deque）
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>这篇文章帮助你了解Linux服务器的网络信息
 </p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
 
-          
+<p><strong>TCP/IP</strong>：</p>
+
+<ul>
+<li><strong>ifconfig</strong>：
+
+<ul>
+<li>获取机器TCP/IP配置信息</li>
+</ul></li>
+<li><strong>arp</strong>：</li>
+<li><strong>netstat</strong>：</li>
+<li><strong>route</strong>：</li>
+</ul>
+
+<p><strong>ping &lt;host&gt;</strong>：</p>
+
+<ul>
+<li>检查网络中两个节点的连通性。本地到host的连通性。</li>
+</ul>
+
+<p><strong>traceroute</strong>：</p>
+
+<ul>
+<li>查看两个节点间经过的路由路径。</li>
+</ul>
+
+<p><strong>DNS</strong>：</p>
+
+<ul>
+<li><strong>dig &lt;host&gt;</strong>：
+
+<ul>
+<li>从域名获取ip地址（默认是A records的ip地址）。可以指定其他record类型，如<code>$ dig google.com MX</code>。</li>
+<li><code>$ dig -x 8.8.8.8</code>：从ip地址反查域名。</li>
+</ul></li>
+<li><strong>nslookup &lt;host&gt;</strong>：从域名获取ip地址，现在基本用dig命令。</li>
+<li><strong>host &lt;ip&gt;</strong>：从ip地址反查域名。</li>
+</ul>
+
+<!-- 
+* **telnet host \<port\>**：检查host机器port端口是否连通。
+ -->
+
+<p><strong>NAT/firewall</strong>：</p>
+
+<p><strong>和网络相关的一些文件</strong>：</p>
+
+<ul>
+<li>/etc/hosts</li>
+<li>/etc/networks</li>
+<li>/etc/protocols</li>
+<li>/etc/servicees</li>
+</ul>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#ip-ss">ip &amp; ss</a>
+<ul>
+<li><a href="#net-tools-iproute2">net-tools → iproute2</a></li>
+<li><a href="#netstat-ss">netstat → ss</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="ip-ss">ip &amp; ss</h1>
+
+<p>ifconfig和netstat所在的net-tools在2011年已经不维护了，替代它们的是ip和ss命令。</p>
+
+<h2 id="net-tools-iproute2">net-tools → iproute2</h2>
+
+<p>iproute2替代了原有的ifconfig、route、arp命令。</p>
+
+<h2 id="netstat-ss">netstat → ss</h2>
+
+<p>ss替代了原有的netstat命令。</p>
+
+<p>参考资料：</p>
+
+<ul>
+<li><a href="https://itsfoss.com/basic-linux-networking-commands/">List of basic networking commands in Linux</a>（将不同命令归类）</li>
+<li><a href="http://xmodulo.com/linux-tcpip-networking-net-tools-iproute2.html">Linux TCP/IP networking: net-tools vs. iproute2</a></li>
+</ul>
+
+<p>扩展阅读：</p>
+
+<ul>
+<li><a href="https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/">Deprecated Linux networking commands and their replacements</a></li>
+<li><a href="https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf">ip command cheatsheet</a></li>
+</ul>
+
+<hr />
+
+<p>注[1]：</p>
+
+<ul>
+<li>CentOS7安装nslookup和dig，<code>yum install bind-utils</code>。</li>
+<li>CentOS7安装ifconfig和netstat，<code>yum install net-tools</code>。</li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
-  
-    
-      
-        
-      
-    
-  
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/linux/">Linux</a>
 
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/">
-          数据结构与算法之队列Queue
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-01T19:45:00&#43;08:00">
-        
-  七月 1, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>线性数据结构（linear data structure）第二讲队列（queue）
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
+                  </div>
+                
+              
             
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/">
-          数据结构与算法之堆Stack
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-30T15:05:25&#43;08:00">
-        
-  六月 30, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>线性数据结构（linear data structure）第一讲堆（stack）
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
             
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python-gil/">
-          Python GIL
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-29T15:05:25&#43;08:00">
-        
-  六月 29, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b">Python并发编程</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>一个Python解释器同一时间只有一个线程在执行。
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python-gil/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
           
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
-          Python并发编程
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-27T21:40:00&#43;08:00">
-        
-  六月 27, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b">Python并发编程</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>本系列文章介绍Python中基于多线程、多进程、异步这三种方式实现的并发。</p>
-
-<p></p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/" data-tooltip="数据结构与算法之哈希Hashing">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
           
-            
-  
-    
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/">
-          Python中的元类
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-25T17:51:25&#43;08:00">
-        
-  六月 25, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python">python</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>也许写代码的时候没有写过元类，但是它的概念和原理还是要理解。
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E4%B8%AD%E7%9A%84%E5%85%83%E7%B1%BB/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/">
-          Python高级开发技术栈
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-25T15:17:25&#43;08:00">
-        
-  六月 25, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/python">python</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>为自己准备的Python高级开发技术栈。</p>
-
-<p></p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-          
-  <div class="pagination-bar">
-    <ul class="pagination">
-      
-        
-          <li class="pagination-prev">
-            <a class="btn btn--default btn--small" href="https://363549406.github.io/post/">
-              <i class="fa fa-angle-left text-base icon-mr"></i>
-              <span>上一页</span>
-            </a>
-          </li>
-        
-        
-          <li class="pagination-next">
-            <a class="btn btn--default btn--small" href="https://363549406.github.io/post/page/3/">
-              <span>下一页</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81---%E8%8D%89%E7%A8%BF/">
+              <i class="fa fa-twitter"></i>
             </a>
           </li>
         
       
-      <li class="pagination-number">第 2 页 共 3 页</li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
     </ul>
   </div>
 
 
-        </section>
+            
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
@@ -641,6 +435,72 @@
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/" data-tooltip="数据结构与算法之哈希Hashing">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81---%E8%8D%89%E7%A8%BF/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2Flinux%25E7%25BD%2591%25E7%25BB%259C%25E7%258A%25B6%25E6%2580%2581---%25E8%258D%2589%25E7%25A8%25BF%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -914,6 +774,10 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+  
 
 
 
