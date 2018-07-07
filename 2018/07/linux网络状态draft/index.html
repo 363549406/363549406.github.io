@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>数据结构与算法之队列Queue</title>
+    <title>Linux网络状态draft</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
@@ -30,17 +30,17 @@
     
 
     
-    <meta name="description" content="线性数据结构（linear data structure）第二讲队列（queue）
+    <meta name="description" content="这篇文章帮助你了解Linux服务器的网络信息
 ">
-    <meta property="og:description" content="线性数据结构（linear data structure）第二讲队列（queue）
+    <meta property="og:description" content="这篇文章帮助你了解Linux服务器的网络信息
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据结构与算法之队列Queue">
-    <meta property="og:url" content="/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/">
+    <meta property="og:title" content="Linux网络状态draft">
+    <meta property="og:url" content="/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81draft/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="线性数据结构（linear data structure）第二讲队列（queue）
+    <meta name="twitter:description" content="这篇文章帮助你了解Linux服务器的网络信息
 ">
     
       <meta name="twitter:creator" content="@snail_mu">
@@ -228,15 +228,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      数据结构与算法之队列Queue
+      Linux网络状态draft
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-01T19:45:00&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-07T15:23:25&#43;08:00">
         
-  七月 1, 2018
+  七月 7, 2018
 
       </time>
     
@@ -245,7 +245,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
+      <a class="category-link" href="https://363549406.github.io/categories/linux">Linux</a>
     
   
 
@@ -255,65 +255,105 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>线性数据结构（linear data structure）第二讲队列（queue）
+              <p>这篇文章帮助你了解Linux服务器的网络信息
 </p>
 
-<p>队列的添加和移除原则为：先入先出（first-in first out, FIFO）。生活中排队就是队列。</p>
-
-<p>今晚我们看完球在簋街附近打车，前面有100多位在等，这就是一个队列。问：这里的first-in一定会first-out么？如果把first-out定义成被服务，那是的，先叫车先打到车；如果把first-out定义为移出队列，那就不是，用户取消了也会被移出队列。</p>
-
-<p>队列的操作：</p>
+<p><strong>TCP/IP</strong>：</p>
 
 <ul>
-<li><code>Queue()</code> 创建一个新队列，返回空的队列。</li>
-<li><code>enqueue(item)</code> 在队列尾部增加一个元素，返回None。</li>
-<li><code>dequeue()</code> 从队列头部移除一个元素，返回移除的元素。</li>
-<li><code>peek()</code> 返回队列中下一个被移除的元素。</li>
-<li><code>is_empty()</code> 返回队列是否为空，True或者False。</li>
-<li><code>size()</code> 返回队列中元素个数。</li>
+<li><strong>ifconfig</strong>：
+
+<ul>
+<li>获取机器TCP/IP配置信息</li>
+</ul></li>
+<li><strong>arp</strong>：</li>
+<li><strong>netstat</strong>：</li>
+<li><strong>route</strong>：</li>
 </ul>
 
-<p>队列的实现：</p>
-
-<pre><code class="language-python">class Queue:
-    def __init__(self):
-        self.items = []
-    def enqueue(self, item):
-        self.items.insert(0, item)
-    def dequeue(self):
-        return self.items.pop()
-    def peek(self):
-        return self.items[-1]
-    def is_empty(self):
-        return self.items == []
-    def size(self):
-        return len(self.items)
-</code></pre>
-
-<p>队列的优点：</p>
+<p><strong>ping &lt;host&gt;</strong>：</p>
 
 <ul>
-<li>操作很快。</li>
+<li>检查网络中两个节点的连通性。本地到host的连通性。</li>
 </ul>
 
-<p>队列的用处：</p>
+<p><strong>traceroute</strong>：</p>
 
 <ul>
-<li>广度优先搜索：用队列记录将要被访问的节点，先加入，先被查看</li>
-<li>处理器：CPU中的scheduler中等待被执行的队列</li>
-<li>循环播放列表</li>
+<li>查看两个节点间经过的路由路径。</li>
 </ul>
 
-<blockquote>
-<p>判断是否需要用队列：考虑场景中有没有依次、FIFO、循环的需求。 - myself</p>
-</blockquote>
-
-<p><strong>参考资料</strong>：</p>
+<p><strong>DNS</strong>：</p>
 
 <ul>
-<li><a href="http://interactivepython.org/runestone/static/pythonds/index.html">Problem Solving with Algorithms and Data Structures - Chapter 3</a></li>
-<li><a href="https://www.interviewcake.com/data-structures-reference">Data Structures Reference - For coding interviews or computer science classes</a></li>
-<li><a href="https://github.com/keon/algorithms">Github - Python - 数据结构和算法实现</a></li>
+<li><strong>dig &lt;host&gt;</strong>：
+
+<ul>
+<li>从域名获取ip地址（默认是A records的ip地址）。可以指定其他record类型，如<code>$ dig google.com MX</code>。</li>
+<li><code>$ dig -x 8.8.8.8</code>：从ip地址反查域名。</li>
+</ul></li>
+<li><strong>nslookup &lt;host&gt;</strong>：从域名获取ip地址，现在基本用dig命令。</li>
+<li><strong>host &lt;ip&gt;</strong>：从ip地址反查域名。</li>
+</ul>
+
+<!-- 
+* **telnet host \<port\>**：检查host机器port端口是否连通。
+ -->
+
+<p><strong>NAT/firewall</strong>：</p>
+
+<p><strong>和网络相关的一些文件</strong>：</p>
+
+<ul>
+<li>/etc/hosts</li>
+<li>/etc/networks</li>
+<li>/etc/protocols</li>
+<li>/etc/servicees</li>
+</ul>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#ip-ss">ip &amp; ss</a>
+<ul>
+<li><a href="#net-tools-iproute2">net-tools → iproute2</a></li>
+<li><a href="#netstat-ss">netstat → ss</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="ip-ss">ip &amp; ss</h1>
+
+<p>ifconfig和netstat所在的net-tools在2011年已经不维护了，替代它们的是ip和ss命令。</p>
+
+<h2 id="net-tools-iproute2">net-tools → iproute2</h2>
+
+<p>iproute2替代了原有的ifconfig、route、arp命令。</p>
+
+<h2 id="netstat-ss">netstat → ss</h2>
+
+<p>ss替代了原有的netstat命令。</p>
+
+<p>参考资料：</p>
+
+<ul>
+<li><a href="https://itsfoss.com/basic-linux-networking-commands/">List of basic networking commands in Linux</a>（将不同命令归类）</li>
+<li><a href="http://xmodulo.com/linux-tcpip-networking-net-tools-iproute2.html">Linux TCP/IP networking: net-tools vs. iproute2</a></li>
+</ul>
+
+<p>扩展阅读：</p>
+
+<ul>
+<li><a href="https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/">Deprecated Linux networking commands and their replacements</a></li>
+<li><a href="https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf">ip command cheatsheet</a></li>
+</ul>
+
+<hr />
+
+<p>注[1]：</p>
+
+<ul>
+<li>CentOS7安装nslookup和dig，<code>yum install bind-utils</code>。</li>
+<li>CentOS7安装ifconfig和netstat，<code>yum install net-tools</code>。</li>
 </ul>
               
             </div>
@@ -326,7 +366,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/linux/">Linux</a>
 
                   </div>
                 
@@ -339,7 +379,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" data-tooltip="数据结构与算法之双向队列Deque">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -347,7 +387,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/" data-tooltip="数据结构与算法之堆Stack">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/" data-tooltip="数据结构与算法之哈希Hashing">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -365,7 +405,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81draft/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -374,7 +414,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -403,7 +443,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" data-tooltip="数据结构与算法之双向队列Deque">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -411,7 +451,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/" data-tooltip="数据结构与算法之堆Stack">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/" data-tooltip="数据结构与算法之哈希Hashing">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -429,7 +469,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81draft/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -438,7 +478,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -453,7 +493,7 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%25E4%25B8%258E%25E7%25AE%2597%25E6%25B3%2595%25E4%25B9%258B%25E9%2598%259F%25E5%2588%2597queue%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2Flinux%25E7%25BD%2591%25E7%25BB%259C%25E7%258A%25B6%25E6%2580%2581draft%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
