@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>数据结构与算法之链表Linked List</title>
+    <title>计算机网络基础</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
@@ -30,17 +30,17 @@
     
 
     
-    <meta name="description" content="线性数据结构（linear data structure）第四讲链表（linked list）
+    <meta name="description" content="计算机网络分类、设备、OSI模型。
 ">
-    <meta property="og:description" content="线性数据结构（linear data structure）第四讲链表（linked list）
+    <meta property="og:description" content="计算机网络分类、设备、OSI模型。
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据结构与算法之链表Linked List">
-    <meta property="og:url" content="/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/">
+    <meta property="og:title" content="计算机网络基础">
+    <meta property="og:url" content="/2018/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="线性数据结构（linear data structure）第四讲链表（linked list）
+    <meta name="twitter:description" content="计算机网络分类、设备、OSI模型。
 ">
     
       <meta name="twitter:creator" content="@snail_mu">
@@ -228,15 +228,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      数据结构与算法之链表Linked List
+      计算机网络基础
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-02T15:18:00&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-09T19:05:25&#43;08:00">
         
-  七月 2, 2018
+  七月 9, 2018
 
       </time>
     
@@ -245,7 +245,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
+      <a class="category-link" href="https://363549406.github.io/categories/computer-networking">Computer Networking</a>
     
   
 
@@ -255,96 +255,56 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>线性数据结构（linear data structure）第四讲链表（linked list）
+              <p>计算机网络分类、设备、OSI模型。
 </p>
 
-<p>链表：有顺序关系的一组元素[1]。</p>
-
-<p>链表的操作：</p>
+<p>网络的分类（地理空间）：</p>
 
 <ul>
-<li><code>LinkedList()</code> 创建一个新链表，返回空的链表。</li>
-<li><code>add(item)</code> 将item添加到链表头部，返回None。</li>
-<li><code>append(item)</code> 将item添加到链表尾部，返回None。</li>
-<li><code>insert(pos, item)</code> 在pos位置添加元素item，返回None。</li>
-<li><code>remove(item)</code> 从链表中删除第一个item元素，返回被删除的元素。</li>
-<li><code>pop(pos)</code> 从链表中删除pos位置上的元素，返回被删除的元素。pos默认为链表最后的位置。</li>
-<li><code>index(item)</code> 返回item在链表中的索引。没有找到时返回-1。</li>
-<li><code>is_empty()</code> 判断链表是否为空，返回True或者False。</li>
-<li><code>size()</code> 返回链表中元素个数。</li>
+<li>LAN - local Area Network：在同一栋建筑（学校、小办公室、家庭）内，（为什么需要？）可以共享一些（打印机）设备。</li>
+<li>MAN - Metropolitan Area Network：对应城市这个范围，城市内的医院、学校、图书馆组成了MAN。</li>
+<li>WAN - Wide Area Network：对应国家，不同城市之间连接（大于30 miles）。</li>
 </ul>
 
-<p>链表的实现[2]：</p>
-
-<pre><code class="language-python">class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-    def add(self, item):
-        new_node = Node(item)
-        new_node.next = self.head
-        self.head = new_node
-    def append(self, item):
-        current = self.head
-        pre = None
-        while current != None:
-            pre = current
-            current = current.next
-        node = Node(item)
-        if pre == None:
-            self.head = node
-        else:
-            pre.next = node
-    def index(self, item):
-        current = self.head
-        count = 0
-        while current != None:
-            if current.value == item:
-                return count
-            current = current.next
-            count += 1
-        return -1
-    def is_empty(self):
-        return self.head == None
-    def size(self):
-        current = self.head
-        count = 0
-        while current != None:
-            count += 1
-            current = current.next
-        return count
-</code></pre>
-
-<p>链表的优点：</p>
+<p>网络连接设备：</p>
 
 <ul>
-<li>在链表头部和尾部的操作快，适合实现堆和队列。</li>
+<li>网卡 - Network Interface Card, NIC：又叫网络适配器 - Network Adapter，通过唯一的MAC地址标识自己，有有线网卡和无线网卡之分。</li>
+<li>路由器 - Router：家里的路由器。</li>
+<li>交换机 - Switch：为子网提供更多ports。种类很多，有的也有中继器的功能。</li>
+<li>中继器 - Repeater：无线信号放大器。</li>
 </ul>
 
-<p>链表的缺点：</p>
+<p>两台计算机是如何传输数据的？</p>
 
-<ul>
-<li>查找速度慢，需要遍历[3]。</li>
-</ul>
+<p>OSI model - Open System Interconnnection Reference Model：</p>
 
-<p><strong>参考资料</strong>：</p>
+<ol>
+<li>Physical 物理层：传输比特数据。所以中继器工作在物理层。</li>
+<li>Data Link 数据链路层：确保数据帧传输正确、能按正确的顺序恢复。NIC网卡</li>
+<li>Network 网络层：决定数据的路径选择和转寄，将网络表头（NH）加至数据包，以形成分组。网络表头包含了网络数据。如IP、ICMP等。所以路由工作在网络层。</li>
+<li>Transport 传输层：把传输表头（TH）加至数据以形成数据包。传输表头包含了所有使用的协议等发送信息。如TCP、UDP等。</li>
+<li>Session 会话层：负责在数据传输中设置和维护电脑网络中两台电脑之间的通信连接。</li>
+<li>Presentation 表示层：把数据转换为能与接收者的系统格式兼容并适合传输的格式。</li>
+<li>Appliction 应用层：提供为应用软件而设计的接口，如HTTP、HTTPS、FTP、TELENT、SSH、SMTP、POP3等。</li>
+</ol>
 
-<ul>
-<li><a href="http://interactivepython.org/runestone/static/pythonds/index.html">Problem Solving with Algorithms and Data Structures - Chapter 3</a></li>
-<li><a href="https://www.interviewcake.com/data-structures-reference">Data Structures Reference - For coding interviews or computer science classes</a></li>
-</ul>
+<p><img src="https://363549406.github.io/images/OSI模型中数据如何传输.jpg" alt="OSI模型中数据传输" /></p>
+
+<p>Linux TCP/IP Model:</p>
+
+<p><img src="https://363549406.github.io/images/OSI和TCPIP对比.jpg" alt="OSI和TCPIP对比" /></p>
 
 <hr />
 
-<p>注[1]: 其实我也不知道怎么描述。链表还有有序链表，链表中的元素按照大小顺序排列；双向链表，链表中的每个节点可以有前后两个节点。</p>
+<p>参考资料：</p>
 
-<p>注[2]: 实际如果使用到，我想我应该想直接用Python的list。</p>
-
-<p>注[3]: 如果是有序链表，在查找时可以使用二分查找加快查找速度，但是同样的在向有序链表中添加数据时相比较普通链表会花费更多时间。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=EcbyD_YycPA&amp;index=2&amp;list=PL6gx4Cwl9DGBpuvPW0aHa7mKdn_k9SPKO">youtube - Computer Networking Tutorial</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/OSI%E6%A8%A1%E5%9E%8B">wiki - OSI Model</a></li>
+<li>《计算机网络 - 第五版》（潘爱民译）</li>
+<li><a href="https://community.fs.com/blog/tcpip-vs-osi-whats-the-difference-between-the-two-models.html">tcpip-vs-osi-whats-the-difference-between-the-two-models</a></li>
+</ul>
               
             </div>
           </div>
@@ -356,7 +316,7 @@ class LinkedList:
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/computer-networking/">Computer Networking</a>
 
                   </div>
                 
@@ -369,7 +329,7 @@ class LinkedList:
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/" data-tooltip="Python的对象实例化">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -377,7 +337,7 @@ class LinkedList:
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" data-tooltip="数据结构与算法之双向队列Deque">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/" data-tooltip="Linux网络状态">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -395,7 +355,7 @@ class LinkedList:
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -433,7 +393,7 @@ class LinkedList:
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/" data-tooltip="Python的对象实例化">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -441,7 +401,7 @@ class LinkedList:
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" data-tooltip="数据结构与算法之双向队列Deque">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/" data-tooltip="Linux网络状态">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -459,7 +419,7 @@ class LinkedList:
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -483,7 +443,7 @@ class LinkedList:
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%25E4%25B8%258E%25E7%25AE%2597%25E6%25B3%2595%25E4%25B9%258B%25E9%2593%25BE%25E8%25A1%25A8linked-list%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2F%25E8%25AE%25A1%25E7%25AE%2597%25E6%259C%25BA%25E7%25BD%2591%25E7%25BB%259C%25E5%259F%25BA%25E7%25A1%2580%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>

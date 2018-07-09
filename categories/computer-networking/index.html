@@ -1,9 +1,5 @@
 
 
-  
-    
-  
-
 
   
 
@@ -22,26 +18,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>数据结构与算法之链表Linked List</title>
+    <title>Computer Networking</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://363549406.github.io/favicon.png">
     
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://363549406.github.io/categories/computer-networking/index.xml">
+    
 
     
-    <meta name="description" content="线性数据结构（linear data structure）第四讲链表（linked list）
-">
-    <meta property="og:description" content="线性数据结构（linear data structure）第四讲链表（linked list）
-">
+    <meta name="description" content="Snail Mu Blog">
+    <meta property="og:description" content="Snail Mu Blog">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据结构与算法之链表Linked List">
-    <meta property="og:url" content="/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/">
+    <meta property="og:title" content="Computer Networking">
+    <meta property="og:url" content="/categories/computer-networking/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="线性数据结构（linear data structure）第四讲链表（linked list）
-">
+    <meta name="twitter:description" content="Snail Mu Blog">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -78,7 +73,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
+      <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://363549406.github.io/">Snail Mu</a>
@@ -98,7 +93,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="4">
+      <nav id="sidebar" data-behavior="1">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -217,26 +212,44 @@
 </nav>
 
       
+        
 
-      <div id="main" data-behavior="4"
+      
+      <div id="main" data-behavior="1"
         class="
                hasCoverMetaIn
                ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-          
-            <div class="post-header main-content-wrap text-left">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
   
-    <h1 class="post-title" itemprop="headline">
-      数据结构与算法之链表Linked List
-    </h1>
+    
+      
+        
+      
+    
   
+
+
   
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+          计算机网络基础
+        </a>
+      </h1>
+      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-02T15:18:00&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-09T19:05:25&#43;08:00">
         
-  七月 2, 2018
+  七月 9, 2018
 
       </time>
     
@@ -245,179 +258,30 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
+      <a class="category-link" href="https://363549406.github.io/categories/computer-networking">Computer Networking</a>
     
   
 
   </div>
 
-</div>
-          
-          <div class="post-content markdown" itemprop="articleBody">
-            <div class="main-content-wrap">
-              <p>线性数据结构（linear data structure）第四讲链表（linked list）
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>计算机网络分类、设备、OSI模型。
 </p>
-
-<p>链表：有顺序关系的一组元素[1]。</p>
-
-<p>链表的操作：</p>
-
-<ul>
-<li><code>LinkedList()</code> 创建一个新链表，返回空的链表。</li>
-<li><code>add(item)</code> 将item添加到链表头部，返回None。</li>
-<li><code>append(item)</code> 将item添加到链表尾部，返回None。</li>
-<li><code>insert(pos, item)</code> 在pos位置添加元素item，返回None。</li>
-<li><code>remove(item)</code> 从链表中删除第一个item元素，返回被删除的元素。</li>
-<li><code>pop(pos)</code> 从链表中删除pos位置上的元素，返回被删除的元素。pos默认为链表最后的位置。</li>
-<li><code>index(item)</code> 返回item在链表中的索引。没有找到时返回-1。</li>
-<li><code>is_empty()</code> 判断链表是否为空，返回True或者False。</li>
-<li><code>size()</code> 返回链表中元素个数。</li>
-</ul>
-
-<p>链表的实现[2]：</p>
-
-<pre><code class="language-python">class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-    def add(self, item):
-        new_node = Node(item)
-        new_node.next = self.head
-        self.head = new_node
-    def append(self, item):
-        current = self.head
-        pre = None
-        while current != None:
-            pre = current
-            current = current.next
-        node = Node(item)
-        if pre == None:
-            self.head = node
-        else:
-            pre.next = node
-    def index(self, item):
-        current = self.head
-        count = 0
-        while current != None:
-            if current.value == item:
-                return count
-            current = current.next
-            count += 1
-        return -1
-    def is_empty(self):
-        return self.head == None
-    def size(self):
-        current = self.head
-        count = 0
-        while current != None:
-            count += 1
-            current = current.next
-        return count
-</code></pre>
-
-<p>链表的优点：</p>
-
-<ul>
-<li>在链表头部和尾部的操作快，适合实现堆和队列。</li>
-</ul>
-
-<p>链表的缺点：</p>
-
-<ul>
-<li>查找速度慢，需要遍历[3]。</li>
-</ul>
-
-<p><strong>参考资料</strong>：</p>
-
-<ul>
-<li><a href="http://interactivepython.org/runestone/static/pythonds/index.html">Problem Solving with Algorithms and Data Structures - Chapter 3</a></li>
-<li><a href="https://www.interviewcake.com/data-structures-reference">Data Structures Reference - For coding interviews or computer science classes</a></li>
-</ul>
-
-<hr />
-
-<p>注[1]: 其实我也不知道怎么描述。链表还有有序链表，链表中的元素按照大小顺序排列；双向链表，链表中的每个节点可以有前后两个节点。</p>
-
-<p>注[2]: 实际如果使用到，我想我应该想直接用Python的list。</p>
-
-<p>注[3]: 如果是有序链表，在查找时可以使用二分查找加快查找速度，但是同样的在向有序链表中添加数据时相比较普通链表会花费更多时间。</p>
-              
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">标签</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-
-                  </div>
-                
-              
-            
-            
-  <div class="post-actions-wrap">
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/" data-tooltip="Python的对象实例化">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" data-tooltip="数据结构与算法之双向队列Deque">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
+      <p>
+        <a href="https://363549406.github.io/2018/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="postShorten-excerpt_link link">阅读全文</a>
         
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-      
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
+      </p>
+    </div>
   </div>
-
+  
+</article>
 
             
-              
             
-          </div>
-        </article>
+
+          </section>
+        
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
@@ -425,72 +289,6 @@ class LinkedList:
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-        
-  <div class="post-actions-wrap">
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/python%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E5%8C%96/" data-tooltip="Python的对象实例化">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" data-tooltip="数据结构与算法之双向队列Deque">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-      
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-
-      </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
-  <i id="btn-close-shareoptions" class="fa fa-close"></i>
-  <ul class="share-options">
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%25E4%25B8%258E%25E7%25AE%2597%25E6%25B3%2595%25E4%25B9%258B%25E9%2593%25BE%25E8%25A1%25A8linked-list%2F">
-          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -765,10 +563,6 @@ $(document).ready(function() {
 });
 </script>
 
-
-  
-    
-  
 
 
 
