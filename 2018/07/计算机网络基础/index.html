@@ -275,7 +275,13 @@
 <ul>
 <li>网卡 - Network Interface Card, NIC：又叫网络适配器 - Network Adapter，通过唯一的MAC地址标识自己，有有线网卡和无线网卡之分[1]。</li>
 <li>路由器 - Router：家里的路由器。是LAN的边缘，扮演从一个网络到其他网络的网关角色，它连接两个不同网络。</li>
-<li>交换机 - Switch：为子网提供更多ports。种类很多，有的也有中继器的功能。</li>
+<li>交换机 - Switch：为子网提供更多ports。种类很多，有的也有中继器的功能。
+
+<ul>
+<li>layer 2 switch：交换机的port口可以有MAC地址，这就会为连接交换机的两台设备提供点对点网络提供了可能[2]。</li>
+<li>layer 3 switch：Network layer switch。使用IP地址代替MAC地址。
+<!--todo 47:13秒--></li>
+</ul></li>
 <li>中继器 - Repeater：无线信号放大器。</li>
 </ul>
 
@@ -285,7 +291,7 @@
 <li>Bus Topology</li>
 <li>Star Topology：常见的如家里的路由，交换机。</li>
 <li>Ring Topology：</li>
-<li>Mesh Topology：每个PC都可以和其他任意PC连接。</li>
+<li>Mesh Topology：每个PC都可以和其他任意PC连接。好处：A -&gt; B断开了，A -&gt; C -&gt; B还是可以的。</li>
 </ul>
 
 <p><img src="https://363549406.github.io/images/network_topologies.jpeg" alt="Network Topologies" /></p>
@@ -304,13 +310,47 @@
 <p>OSI model - Open System Interconnnection Reference Model：</p>
 
 <ol>
-<li>Physical 物理层：传输比特数据。所以中继器工作在物理层。</li>
-<li>Data Link 数据链路层：确保数据帧传输正确、能按正确的顺序恢复。NIC网卡。</li>
-<li>Network 网络层：决定数据的路径选择和转寄，将网络表头（NH）加至数据包，以形成分组。网络表头包含了网络数据。如IP、ICMP等。所以路由工作在网络层。</li>
-<li>Transport 传输层：把传输表头（TH）加至数据以形成数据包。传输表头包含了所有使用的协议等发送信息。如TCP、UDP等。</li>
-<li>Session 会话层：负责在数据传输中设置和维护电脑网络中两台电脑之间的通信连接。</li>
-<li>Presentation 表示层：把数据转换为能与接收者的系统格式兼容并适合传输的格式。</li>
-<li>Appliction 应用层：提供为应用软件而设计的接口，如HTTP、HTTPS、FTP、TELENT、SSH、SMTP、POP3等。</li>
+<li>Physical 物理层：
+
+<ul>
+<li>传输比特数据。确保发送1，接收到的也是1。</li>
+<li>中继器工作在物理层。</li>
+</ul></li>
+<li>Data Link 数据链路层：
+
+<ul>
+<li>确保数据帧传输正确、能按正确的顺序恢复。<!--todo--></li>
+<li>NIC网卡在这一层。其实，NIC也接受比特数据，可以认为是交叉在物理层和数据链路层。</li>
+</ul></li>
+<li>Network 网络层：
+
+<ul>
+<li>主要功能是控制子网运行。需要解决如何将数据包从源端路由到接收方。它决定了数据的路径选择和转寄。</li>
+<li>如IP、ICMP、ARP等。</li>
+<li>所以路由工作在网络层，还有layer 3 switch也工作在这一层。</li>
+</ul></li>
+<li>Transport 传输层：
+
+<ul>
+<li>把传输表头（TH）至数据以形成数据包。传输表头包含了所有使用的协议等发送信息。<!--todo--></li>
+<li>如TCP、UDP、RTP等。Port端口的概念在传输层[3]。</li>
+</ul></li>
+<li>Session 会话层：
+
+<ul>
+<li>负责在数据传输中设置和维护电脑网络中两台电脑之间的通信连接。</li>
+</ul></li>
+<li>Presentation 表示层：
+
+<ul>
+<li>把数据转换为能与接收者的系统格式兼容并适合传输的格式。</li>
+</ul></li>
+<li>Appliction 应用层：
+
+<ul>
+<li>提供为应用软件而设计的接口。</li>
+<li>如HTTP、HTTPS、FTP、TELENT、SSH、SMTP、POP3等。</li>
+</ul></li>
 </ol>
 
 <p><img src="https://363549406.github.io/images/OSI模型中数据如何传输.jpg" alt="OSI模型中数据传输" /></p>
@@ -321,23 +361,97 @@
 
 <p>IP地址 - Internet Protocol (IP) address：192.168.1.1分为Network ID（192.168.1）和Host ID(1)</p>
 
+<p>MAC地址 - Media Access Control Address：NIC有唯一标识的MAC地址。</p>
+
 <hr />
 
 <p>参考资料：</p>
 
 <ul>
-<li><a href="https://www.youtube.com/playlist?list=PL6gx4Cwl9DGBpuvPW0aHa7mKdn_k9SPKO">youtube - Computer Networking Tutorial</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PL6gx4Cwl9DGBpuvPW0aHa7mKdn_k9SPKO">youtube - Computer Networking Tutorial</a>（蛮有趣的）</li>
 <li><a href="https://zh.wikipedia.org/wiki/OSI%E6%A8%A1%E5%9E%8B">wiki - OSI Model</a></li>
 <li>《计算机网络 - 第五版》（潘爱民译）</li>
-<li><a href="https://community.fs.com/blog/tcpip-vs-osi-whats-the-difference-between-the-two-models.html">tcpip-vs-osi-whats-the-difference-between-the-two-models</a></li>
-<li><a href="https://www.youtube.com/watch?v=O5X5mOSQBHk">youtube - Computer Networking Tutorial for Beginners &amp; Basic Network Fundamentals</a></li>
+<li><a href="https://community.fs.com/blog/tcpip-vs-osi-whats-the-difference-between-the-two-models.html">tcpip-vs-osi-whats-the-difference-between-the-two-models</a>（两张图片的来源）</li>
+<li><a href="https://www.youtube.com/watch?v=O5X5mOSQBHk">youtube - Computer Networking Tutorial for Beginners &amp; Basic Network Fundamentals</a>（蛮好的）</li>
 </ul>
 
 <hr />
 
-<p>注[1]：NIC是如何工作的？</p>
+<p>注[1]：NIC是如何工作的？ <!-- ref: https://www.youtube.com/watch?v=QHoW3GEWLD8 --></p>
 
-<!--todo  https://www.youtube.com/watch?v=QHoW3GEWLD8 -->
+<p>接收到bits -&gt; frame -&gt; 校验CRC值（验证正确性） -&gt; 验证Destination MAC（是发给本机器的么） -&gt; 去掉包裹的source MAC和destination MAC地址 -&gt; 发给上层Network Protocol</p>
+
+<p>注[2]: Switch是怎么记住连接设备的MAC地址的？</p>
+
+<p>在Switch内存中存储了张表CAM - Content Addressable Memory。记录了每个port对应的MAC地址。</p>
+
+<p>注[3]：不同协议有各自常用端口 - <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">wiki</a></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Port</th>
+<th align="center">Protocol</th>
+<th align="center">Full Name</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">21</td>
+<td align="center">FTP</td>
+<td align="center">File Transfer Protocol</td>
+</tr>
+
+<tr>
+<td align="center">22</td>
+<td align="center">SSH</td>
+<td align="center">Secure Shell</td>
+</tr>
+
+<tr>
+<td align="center">23</td>
+<td align="center">Telnet</td>
+<td align="center">Terminal Network</td>
+</tr>
+
+<tr>
+<td align="center">25</td>
+<td align="center">SMTP</td>
+<td align="center">Simple Mail Transfer Protocol</td>
+</tr>
+
+<tr>
+<td align="center">53</td>
+<td align="center">DNS</td>
+<td align="center">Domain Name System</td>
+</tr>
+
+<tr>
+<td align="center">80</td>
+<td align="center">HTTP</td>
+<td align="center">Hypertext Transfer Protocol</td>
+</tr>
+
+<tr>
+<td align="center">88</td>
+<td align="center">Kerberos</td>
+<td align="center">Kerberos认证代理</td>
+</tr>
+
+<tr>
+<td align="center">110</td>
+<td align="center">POP3</td>
+<td align="center">Post Office Protocol Version 3</td>
+</tr>
+
+<tr>
+<td align="center">443</td>
+<td align="center">HTTPS</td>
+<td align="center">Secure Hypertext Transfer Protocol</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
