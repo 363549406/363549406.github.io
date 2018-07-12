@@ -1,5 +1,9 @@
 
 
+  
+    
+  
+
 
   
 
@@ -18,25 +22,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>数据结构与算法</title>
+    <title>HTTP基础</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://363549406.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://363549406.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml">
-    
 
     
-    <meta name="description" content="Snail Mu Blog">
-    <meta property="og:description" content="Snail Mu Blog">
+    <meta name="description" content="每天上网浏览网页的的背后到底是什么样子的。
+">
+    <meta property="og:description" content="每天上网浏览网页的的背后到底是什么样子的。
+">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据结构与算法">
-    <meta property="og:url" content="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+    <meta property="og:title" content="HTTP基础">
+    <meta property="og:url" content="/2018/07/http%E5%9F%BA%E7%A1%80/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="Snail Mu Blog">
+    <meta name="twitter:description" content="每天上网浏览网页的的背后到底是什么样子的。
+">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -73,7 +78,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://363549406.github.io/">Snail Mu</a>
@@ -93,7 +98,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -212,44 +217,26 @@
 </nav>
 
       
-        
 
-      
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
+    <h1 class="post-title" itemprop="headline">
+      HTTP基础
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/">
-          数据结构与算法之哈希Hashing
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-06T20:30:00&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-11T15:05:25&#43;08:00">
         
-  七月 6, 2018
+  七月 11, 2018
 
       </time>
     
@@ -258,360 +245,273 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
+      <a class="category-link" href="https://363549406.github.io/categories/computer-networking">Computer Networking</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>算法第三讲哈希（hashing)
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>每天上网浏览网页的的背后到底是什么样子的。
 </p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/" class="postShorten-excerpt_link link">阅读全文</a>
+
+<h1 id="web客户端">Web客户端</h1>
+
+<p>工作流程：客户端向服务端发送请求Request，服务端给客户端发送响应Response。</p>
+
+<h1 id="服务器与资源url">服务器与资源URL</h1>
+
+<p>服务器存放不同类型的Web资源[1]。而要定位一个位于互联网上的资源，需要URI - Uniform Resource Identifier（统一资源标识符）。它有两种形式：</p>
+
+<ul>
+<li>URL - Uniform Resource Locator(统一资源定位符)：描述某资源的特定位置。（基本是这种）</li>
+<li>URN - Uniform Resource Name(统一资源名)：作为特定内容的唯一名称使用，与目前的资源所在位置无关。（未大范围使用）</li>
+</ul>
+
+<p><font style="color:blue">URL语法（9个组成部分）</font>：</p>
+
+<pre><code class="language-text">&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;
+abc://username:password@example.com:123/path/data;type=test?key=value&amp;key2=value2#ref
+</code></pre>
+
+<p><strong>URL编码和字符集</strong>：URL通过“专义”使用百分号(%)后面紧跟两个表示字符ASCII码的十六进制数，来表示URL中不安全字符。</p>
+
+<h1 id="http报文">HTTP报文</h1>
+
+<p>无论是客户端给服务端的请求，还是服务端给客户端的响应，传递的都是HTTP报文。HTTP报文的组成包括：<font style="color:red">起始行、首部字段、主体。[2]</font></p>
+
+<p><img src="https://363549406.github.io/images/http_request_response.jpg" alt="http_request_response" /></p>
+
+<p><font style="color:blue">方法</font> - Request报文中的方法：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+<th align="center">是否包含主体</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">GET</td>
+<td align="center">获取文件</td>
+<td align="center">否</td>
+</tr>
+
+<tr>
+<td align="center">HEAD</td>
+<td align="center">获取文档的首部</td>
+<td align="center">否</td>
+</tr>
+
+<tr>
+<td align="center">POST</td>
+<td align="center">发送需要处理的数据</td>
+<td align="center">是</td>
+</tr>
+
+<tr>
+<td align="center">PUT</td>
+<td align="center">将请求的主体部分存储在服务器</td>
+<td align="center">是</td>
+</tr>
+
+<tr>
+<td align="center">TRACE</td>
+<td align="center">对可能经过代理服务器传送到服务器上去的报文进行追踪</td>
+<td align="center">否</td>
+</tr>
+
+<tr>
+<td align="center">OPTION</td>
+<td align="center">决定可以在服务器上执行哪些方法</td>
+<td align="center">否</td>
+</tr>
+
+<tr>
+<td align="center">DELETE</td>
+<td align="center">从服务器删除一份文档</td>
+<td align="center">否</td>
+</tr>
+</tbody>
+</table>
+
+<p><font style="color:blue">状态码</font> - Response报文中的状态码：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">类别</th>
+<th align="left">原因短语</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">1XX (100 ~ 101)</td>
+<td align="left">Informational（信息性状态码）</td>
+<td align="left">接手的请求正在处理</td>
+</tr>
+
+<tr>
+<td align="left">2XX (200 ~ 206)</td>
+<td align="left">Sucess（成功状态码）</td>
+<td align="left">请求正常处理完毕</td>
+</tr>
+
+<tr>
+<td align="left">3XX (300 ~ 305)</td>
+<td align="left">Redirection（重定向状态码）</td>
+<td align="left">需要进行附加操作以完成请求</td>
+</tr>
+
+<tr>
+<td align="left">4XX (400 ~ 415)</td>
+<td align="left">Client Error（客户端错误状态码）</td>
+<td align="left">服务器无法处理请求</td>
+</tr>
+
+<tr>
+<td align="left">5XX (500 ~ 505)</td>
+<td align="left">Server Error（服务器错误状态码）</td>
+<td align="left">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+
+<p><font style="color:blue">首部</font> - 报文中的各种首部：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">通用首部</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">请求首部</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">响应首部</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">实体首部</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="连接管理tcp-ip">连接管理TCP/IP</h1>
+
+<p>HTTP报文的传输层协议为TCP，网络层协议IP。在HTTP客户端向服务端发送请求报文前，需要用IP协议地址和端口号在客户端和服务器之间建立一条TCP/IP连接。</p>
+
+<p>** 待续 **</p>
+
+<h1 id="web的结构组件">Web的结构组件</h1>
+
+<!--todo 代理、缓存、网关、隧道、Agent代理 可以考虑新开一篇博文 -->
+
+<p>参考资料：</p>
+
+<ul>
+<li>《HTTP权威指南》第一部分（第1 ~ 第4章）：HTTP-web的基础</li>
+</ul>
+
+<hr />
+
+<p>注[1]：HTTP协议给Web传输对象打上MIME - Multipurpose Internet Mail Extension（最初用于邮件，HTTP采纳用于标记多媒体内容类型）</p>
+
+<p>注[2]: HTTP协议的版本有0.9、1.0、1.1、2.0。现在主要是HTTP/1.1。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/computer-networking/">Computer Networking</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" data-tooltip="计算机网络基础">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-      </p>
-    </div>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/http%E5%9F%BA%E7%A1%80/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
   </div>
-  
-</article>
+
 
             
               
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E6%90%9C%E7%B4%A2search/">
-          数据结构与算法之搜索Search
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-06T14:21:25&#43;08:00">
-        
-  七月 6, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>算法第二讲搜索(search) [1]
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E6%90%9C%E7%B4%A2search/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
             
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92recursion/">
-          数据结构与算法之递归Recursion
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-03T00:51:25&#43;08:00">
-        
-  七月 3, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>算法第一讲递归(recursion)
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92recursion/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/">
-          数据结构与算法之链表Linked List
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-02T15:18:00&#43;08:00">
-        
-  七月 2, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>线性数据结构（linear data structure）第四讲链表（linked list）
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%93%BE%E8%A1%A8linked-list/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/">
-          数据结构与算法之双向队列Deque
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-02T00:08:00&#43;08:00">
-        
-  七月 2, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>线性数据结构（linear data structure）第三讲双向队列（deque）
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97deque/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/">
-          数据结构与算法之队列Queue
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-01T19:45:00&#43;08:00">
-        
-  七月 1, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>线性数据结构（linear data structure）第二讲队列（queue）
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/">
-          数据结构与算法之堆Stack
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-30T15:05:25&#43;08:00">
-        
-  六月 30, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>线性数据结构（linear data structure）第一讲堆（stack）
-</p>
-      <p>
-        <a href="https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
-            
-
-          </section>
-        
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
@@ -619,6 +519,72 @@
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" data-tooltip="计算机网络基础">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/http%E5%9F%BA%E7%A1%80/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2Fhttp%25E5%259F%25BA%25E7%25A1%2580%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -893,6 +859,10 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+  
 
 
 
