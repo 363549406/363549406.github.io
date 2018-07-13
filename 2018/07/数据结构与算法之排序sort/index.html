@@ -422,9 +422,39 @@
 
 <h1 id="快排序">快排序</h1>
 
-<p>quick-sort思路：同归并排序一样，使用分而治之的策略。与归并不同，归并选择一个位置来把list分半，快排选择一个值来把list分半。</p>
+<p>quick-sort思路：同归并排序一样，使用分而治之的策略。与归并不同，归并选择一个位置来把list分半，快排选择一个值（中轴值）来把list分半。</p>
 
-<p>** 待序 **</p>
+<ol>
+<li>选择list中list[0]为中轴值。找到中轴值的位置，保证左半部分小于中轴值，右半部分大于中轴值。然后左半部分，有半部分递归调用。</li>
+<li>partition部分：找位置，小值在左边，大值在右边（实现方法很多)：
+
+<ul>
+<li>方法一：left向右移动找到第一个大于list[0]，right向左移动找到第一个小于list[0]的值交互。直到left和right交叉。（gif图是这种）</li>
+<li>方法二：pivot是中轴值value最终的位置，遍历list[1]到list[-1]，找到一个小于value的pivot位置就应该向后移动一位。</li>
+</ul></li>
+</ol>
+
+<pre><code class="language-python">def quick_sort(L, first=0, last=None):
+    def partition(L, begin, end):
+        pivot = begin        # 中轴值位置初始化
+        value = L[begin]     # 中轴值
+        for i in range(begin+1, end+1):
+            if L[i] &lt; value:
+                pivot += 1
+                L[i], L[pivot] = L[pivot], L[i] # 把小于的值移动到pivot位置前面
+        # 此时pivot位置上的值一定小于或等于中轴值value，这里把begin位置上的中轴值移动到pivot位置上
+        L[pivot], L[begin] = L[begin], L[pivot]
+        return pivot
+
+    last = len(L)-1 if last == None else last
+    if first &gt;= last: # base
+        return
+    pivot = partition(L, first, last) # split point
+    quick_sort(L, first, pivot-1)
+    quick_sort(L, pivot+1, last)
+</code></pre>
+
+<p>复杂度：O(n)</p>
 
 <h1 id="堆排序">堆排序</h1>
 
@@ -449,6 +479,8 @@
 <p><img src="https://363549406.github.io/images/sort_algorithm/merge_sort.gif" alt="merge-sort" /></p>
 
 <p>快排序：</p>
+
+<p><img src="https://363549406.github.io/images/sort_algorithm/quick_sort_partition_animation.gif" alt="quick-sort" /></p>
 
 <p>堆排序：</p>
 
