@@ -373,23 +373,24 @@ Out[5]: 'ascii'
 <p>下面举几个容易出现问题的情况：</p>
 
 <ol>
-<li>在编码和解码时字符集不匹配，超出了编码范围。
-<code>python
-&gt;&gt;&gt; my_unicode = u'你好'
+<li><p>在编码和解码时字符集不匹配，超出了编码范围。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; my_unicode = u'你好'
 &gt;&gt;&gt; my_unicode.encode('ascii')
 Traceback (most recent call last):
 File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
-</code></li>
-<li>str和unicode混着使用时，implicityly decode[5]。实际是使用<code>sys.getdefaultencoding()</code>来decode了str后和unicode做字符串连接。
-<code>python
-&gt;&gt; u'你好' + 'world'
+</code></pre></li>
+
+<li><p>str和unicode混着使用时，implicityly decode[5]。实际是使用<code>sys.getdefaultencoding()</code>来decode了str后和unicode做字符串连接。</p>
+
+<pre><code class="language-python">&gt;&gt; u'你好' + 'world'
 u'\u4f60\u597dworld'
 &gt;&gt;&gt; u'你好' + '世界'  # '世界'.decode('ascii')
 Traceback (most recent call last):
 File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position 0: ordinal not in range(128)
-</code></li>
+</code></pre></li>
 
 <li><p>在文件中有非ascii字符时，文件开头缺少code encoding信息。</p>
 
@@ -431,12 +432,14 @@ Out[56]: 65535
 
 <p>注[4]：需要补充一点的是，str类型的字符其具体的编码格式是UTF-8还是GBK，还是其他格式，根据操作系统相关。这点我也需要再理清楚一下。</p>
 
-<p>注[5]：str和unicode混着使用，除了<code>+</code>外，其他很多情况也都会implicityly decode和encode。
-    <code>python
-    &quot;Title %s&quot; % my_unicode # 'Title' -&gt; decode
-    u'Title %s' % my_utf8  # my_utf8 -&gt; decode
-    print my_unicode       # 我的环境竟然没有出错，不是应该ascii encode错了。
-</code></p>
+<p>注[5]：str和unicode混着使用，除了<code>+</code>外，其他很多情况也都会implicityly decode和encode。</p>
+
+<pre><code>```python
+&quot;Title %s&quot; % my_unicode # 'Title' -&gt; decode
+u'Title %s' % my_utf8  # my_utf8 -&gt; decode
+print my_unicode       # 我的环境竟然没有出错，不是应该ascii encode错了。
+```
+</code></pre>
               
             </div>
           </div>
