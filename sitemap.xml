@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://363549406.github.io/2018/07/python%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2018-07-18T22:51:25+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://363549406.github.io/2018/07/python2%E5%92%8Cpython3%E5%B9%B6%E5%AD%98/</loc>
     <lastmod>2018-07-16T22:43:25+08:00</lastmod>
   </url>
@@ -113,25 +118,25 @@
   </url>
   
   <url>
-    <loc>https://363549406.github.io/tags/computer-networking/</loc>
-    <lastmod>2018-07-12T18:12:25+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://363549406.github.io/categories/computer-networking/</loc>
     <lastmod>2018-07-12T18:12:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://363549406.github.io/tags/linux/</loc>
-    <lastmod>2018-07-07T15:23:25+08:00</lastmod>
+    <loc>https://363549406.github.io/tags/computer-networking/</loc>
+    <lastmod>2018-07-12T18:12:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://363549406.github.io/categories/linux/</loc>
+    <lastmod>2018-07-07T15:23:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://363549406.github.io/tags/linux/</loc>
     <lastmod>2018-07-07T15:23:25+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -144,19 +149,19 @@
   
   <url>
     <loc>https://363549406.github.io/post/</loc>
-    <lastmod>2018-07-16T22:43:25+08:00</lastmod>
+    <lastmod>2018-07-18T22:51:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://363549406.github.io/categories/python/</loc>
-    <lastmod>2018-07-16T22:43:25+08:00</lastmod>
+    <lastmod>2018-07-18T22:51:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://363549406.github.io/tags/python-advanced/</loc>
-    <lastmod>2018-07-16T22:43:25+08:00</lastmod>
+    <lastmod>2018-07-18T22:51:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -168,7 +173,7 @@
   
   <url>
     <loc>https://363549406.github.io/</loc>
-    <lastmod>2018-07-16T22:43:25+08:00</lastmod>
+    <lastmod>2018-07-18T22:51:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   

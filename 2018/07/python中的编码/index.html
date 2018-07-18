@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>数据结构与算法之搜索Search</title>
+    <title>Python中的编码</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
@@ -30,17 +30,17 @@
     
 
     
-    <meta name="description" content="算法第二讲搜索(search) [1]
+    <meta name="description" content="本文将会介绍Python2和Python3中的字符编码。
 ">
-    <meta property="og:description" content="算法第二讲搜索(search) [1]
+    <meta property="og:description" content="本文将会介绍Python2和Python3中的字符编码。
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据结构与算法之搜索Search">
-    <meta property="og:url" content="/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E6%90%9C%E7%B4%A2search/">
+    <meta property="og:title" content="Python中的编码">
+    <meta property="og:url" content="/2018/07/python%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="算法第二讲搜索(search) [1]
+    <meta name="twitter:description" content="本文将会介绍Python2和Python3中的字符编码。
 ">
     
       <meta name="twitter:creator" content="@snail_mu">
@@ -228,15 +228,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      数据结构与算法之搜索Search
+      Python中的编码
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-06T14:21:25&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-18T22:51:25&#43;08:00">
         
-  七月 6, 2018
+  七月 18, 2018
 
       </time>
     
@@ -245,7 +245,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
+      <a class="category-link" href="https://363549406.github.io/categories/python">python</a>
     
   
 
@@ -255,93 +255,188 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>算法第二讲搜索(search) [1]
+              <p>本文将会介绍Python2和Python3中的字符编码。
 </p>
 
-<p>搜索返回True和False来表示元素是否在集合中。在Python中使用in这种简单的方式就能判断元素是否在list中。<strong>但是，本文关注的是底层的各种搜索方法。</strong></p>
+<p>实验环境需要Python2和Python3。<a href="../python2和python3并存">install Python2 &amp; Python3</a></p>
 
-<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<hr />
+
+<p>首先我们要理清楚一些概念。</p>
+
+<h5 id="字节与字符">字节与字符</h5>
+
+<p>计算机的世界是由用0和1组成，这叫比特bit。当计算机存储一个文件时，文件是由一串01的字节序列构成，字节Byte等于8个bit。字符是一个符号，汉字、日语、数字、标点等。字节<code>&quot;01100001&quot;</code>方便存储和传输、字符<code>a</code>方便阅读。</p>
+
+<h5 id="编码与解码">编码与解码</h5>
+
+<p>将字符转换为字节的过程叫做编码encode；反过来，将字节转换成字符的过程叫做解码。</p>
+
+<p><img src="https://363549406.github.io/images/python_encoding/encode_decode.png" alt="encode_decode" /></p>
+
+<p>这里有个问题，我的字符<code>&quot;a&quot;</code>为什么编码成了<code>0110001</code>，而不是<code>01010101</code>这种动词打次的节奏？这就有了字符集的概念，它为包含的每一个字符指定了一个唯一数字（编码）。在这里<code>a</code>的编码是<code>97</code>写成二进制就是<code>0110001</code>。下面介绍两种字符集ASCII和Unicode。</p>
+
+<h5 id="ascii">ASCII</h5>
+
+<p>ASCII(American Standard Code for Information Interchange)最开始只定义了128个字符编码。字符与ASCII码的对应关系可以查看<a href="https://www.ascii-code.com/">ascii-code</a></p>
+
+<p>当非英语国家人开始使用电脑，这个字符集所包含的字符就不够用了。于是各个国家有了自己的字符集，中文的字符集就经历了从GB2312到GBK再到GB18030的过程。但是，各个国家都有自己的一套标准，这样子是没有办法交流的，所以就有的Unicode。</p>
+
+<h5 id="unicode">Unicode</h5>
+
+<p>为了统一地球上所有字母、符号，ISO（国际标准化组织）制定了Universal Multiple-Octet Coded Character Set，简称UCS，俗称Unicode。它给世界范围内每个character指定了一个唯一数字。字符与Unicode码表<a href="https://www.unicode.org/charts/">unicode-chart</a></p>
+
+<p>Unicode有两种格式：UCS-2和UCS-4，分别表示使用2个字节和4个字节编码。如在python2中<code>字</code>的UCS编码是<code>5b57</code>就是两个字节[1]。不过两个字节最多表示65535个字符，而4个字节可以表示到100多万个字符。</p>
+
+<p>有了统一Unicode码后，这里就涉及到了如何把一个Unicode码转换成Bytes。</p>
+
+<h5 id="utf-8">UTF-8</h5>
+
+<p>UTF-8 (Unicode Transformation Format)就是最主要的一种将Unicode码<code>U+597D</code>转换成字节<code>\xe5\xa5\xbd</code>的编码方式[3]。它是一套以8位为一个编码单位的可变长编码，会将一个unicode码编码为1到4个字节。</p>
+
+<p>使用UTF-8编码后，原来的ASCII字符集中的字符还是使用一个字节表示，这是对与ASCII很好的兼容性。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Unicode符号范围(十六进制）</th>
+<th align="left">UTF-8编码方式(二进制)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">0000 0000-0000 007F</td>
+<td align="left">0xxxxxxx</td>
+</tr>
+
+<tr>
+<td align="left">0000 0080-0000 07FF</td>
+<td align="left">110xxxxx 10xxxxxx</td>
+</tr>
+
+<tr>
+<td align="left">0000 0800-0000 FFFF</td>
+<td align="left">1110xxxx 10xxxxxx 10xxxxxx</td>
+</tr>
+
+<tr>
+<td align="left">0001 0000-0010 FFFF</td>
+<td align="left">11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</td>
+</tr>
+</tbody>
+</table>
+
+<p>以汉字<code>好</code>为例unicode码为<code>597D</code>，对应的区间是<code>0000 0800--0000 FFFF</code>从上表可对应到3个字节的UTF-8编码，通过如下示例中转换最终得到16进制utf-8码<code>\xe5\xa5\xbd</code>。</p>
+
+<pre><code class="language-text">    中文        好
+    unicode         0101   100101   111101
+    编码规则     1110xxxx 10xxxxxx 10xxxxxx
+                --------------------------
+    utf-8       11100101 10100101 10111101
+                --------------------------
+    16进制utf-8     e   5    a   5    b   d
+</code></pre>
+
+<h1 id="python2">Python2</h1>
+
+<p>理清楚了上面的概念后，来说说在Python中的unicode、utf-8、编码。</p>
+
+<p>先从Python2中说起，Python2有如下两个特点：</p>
+
 <ul>
-<li><a href="#顺序搜索">顺序搜索</a></li>
-<li><a href="#二分搜索">二分搜索</a></li>
-<li><a href="#哈希搜索">哈希搜索</a></li>
-<li><a href="#对比">对比</a></li>
+<li>Python2中使用ASCII作为默认编码方式。</li>
+<li>Python2中字符串可以使用unicode和str两种类型表示。</li>
 </ul>
-</nav>
 
-<h1 id="顺序搜索">顺序搜索</h1>
+<p>对于<code>好</code>这个字，用str表示时，它对应的就是utf-8编码的(Bytes)<code>'\xe5\xa5\xbd'</code>，而用unicode码就是<code>u'\u597d'</code>[4]。从Byte到unicode是解码，从unicode到Byte时encode。</p>
 
-<p>搜索方式：在线性数据结构中，如list中，依照元素的顺序依次查找。</p>
-
-<pre><code class="language-python">def sequential_search(alist, item):
-    pos = 0
-    found = False
-
-    while pos &lt; len(alist) and not found:
-        if alist[pos] == item:
-            found = True
-        else:
-            pos = pos + 1
-    return found
+<pre><code class="language-python">In [2]: type('好'), type(u'好'), '好', '好'.decode('utf8'), u'好'.encode('utf8')
+Out[2]: (str, unicode, '\xe5\xa5\xbd', u'\u597d', '\xe5\xa5\xbd')
 </code></pre>
 
-<p>复杂度：O(n)。如果item在集合中，最好情况是对比1次，最坏情况是对比n次。如果item不在集合中，需要对比n次。</p>
+<p>对于unicode和str的长度。每个unicode码都是长度为1，str的长度则是表示str的byte个数。如汉字<code>你</code>和<code>好</code>使用UTF8编码后都占3个字节。</p>
 
-<h1 id="二分搜索">二分搜索</h1>
+<pre><code class="language-python">In [3]: len(u'你好'), len(u'你好'.encode('utf8'))
+Out[3]: (2, 6)
 
-<p>搜索方式：<strong>对于排序过的队列</strong>，通过比较队列中间元素和item的大小相等关系，来达到一次排除一半待比较元素的目的[2]。</p>
-
-<pre><code class="language-python">def binary_search(alist, item):
-    first = 0
-    last = len(alist)-1
-    found = False
-
-    while first &lt; last and not found:
-        midpoint = (first + last) // 2
-        if alist[midpoint] == item:
-            found = True
-        else:
-            if item &lt; alist[midpoint]:
-                last = midpoint - 1
-            else:
-                first = midpoint + 1
-    return found
+In [4]: len(u'hi \u2119'), len('hi')
+Out[4]: (4, 2)
 </code></pre>
 
-<p>复杂度：O(logN)。每对比一次，需要对比的元素就减半n/2。假设，对比i次之后，所剩元素为1。n = 2的i次方，求解得，i=logN。</p>
+<p>Python2中使用ASCII作为默认编码。但是ASCII编码的字符范围很小，一不小心遇到中文就很容易出错。</p>
 
-<h1 id="哈希搜索">哈希搜索</h1>
+<pre><code class="language-python">In [5]: sys.getdefaultencoding()
+Out[5]: 'ascii'
+</code></pre>
 
-<p>见 <a href="../数据结构与算法之哈希hashing/">哈希搜索</a> 部分。</p>
+<p>下面举几个容易出现问题的情况：</p>
 
-<h1 id="对比">对比</h1>
+<ol>
+<li>在编码和解码时字符集不匹配，超出了编码范围。
+<code>python
+&gt;&gt;&gt; my_unicode = u'你好'
+&gt;&gt;&gt; my_unicode.encode('ascii')
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+</code></li>
+<li>str和unicode混着使用时，implicityly decode[5]。实际是使用<code>sys.getdefaultencoding()</code>来decode了str后和unicode做字符串连接。
+<code>python
+&gt;&gt; u'你好' + 'world'
+u'\u4f60\u597dworld'
+&gt;&gt;&gt; u'你好' + '世界'  # '世界'.decode('ascii')
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position 0: ordinal not in range(128)
+</code></li>
 
-<p>如果想使用二分搜索，要时刻考虑到排序的开销是否值得。好比，如果集合不是很大，可能就不太需要二分搜索；又好比，这个集合虽然不是特别大，但是需要经常搜索，那一次排序可能就值得。</p>
+<li><p>在文件中有非ascii字符时，文件开头缺少code encoding信息。</p>
+
+<pre><code class="language-python"># -*- coding: utf8 -*- # 如果缺少code encoding信息，python t.py时也会出现编码问题。
+print '你好'
+</code></pre></li>
+</ol>
+
+<h1 id="python3">Python3</h1>
+
+<p>Python3中，我还没有用起来。</p>
+
+<hr />
 
 <p>参考资料：</p>
 
 <ul>
-<li><a href="http://interactivepython.org/runestone/static/pythonds/SortSearch/toctree.html">Problem Solving with Algorithms and Data Structures - Chapter 5</a></li>
+<li><a href="https://docs.python.org/3/howto/unicode.html">python3 unicode howto</a></li>
+<li><a href="https://foofish.net/">python之禅中和python编码相关的文章</a></li>
+<li><a href="https://www.youtube.com/watch?v=sgHbC6udIqc">Youtube - Pragmatic Unicode, or, How do I stop the pain?</a> 半个小时值得拥有</li>
+<li><a href="https://www.python.org/dev/peps/pep-0263/">PEP 263 &ndash; Defining Python Source Code Encodings</a></li>
 </ul>
 
 <hr />
 
-<p>注[1]: 其实我更喜欢叫查找。</p>
+<p>注[1]：想知道python使用的unicode是两个字节还是四个字节。</p>
 
-<p>注[2]: 将需要对比的元素减少一半，这是将一个大问题转换成同样类型的小问题。也可以使用递归的方式来是实现。</p>
-
-<pre><code class="language-python">def binary_search_recursion(alist, item):
-    # base case
-    if len(alist) == 0:
-        return False
-    midpoint = len(alist) // 2
-    if alist[midpoint] == item:
-        return True
-    elif alist[midpoint] &gt; item:
-        return binary_search_recursion(alist[:midpoint-1], item)
-    else:
-        return binary_search_recursion(alist[midpoint+1:], item)
+<pre><code class="language-python">In [28]: import sys; sys.maxunicode  # python3是四个字节
+Out[28]: 1114111
 </code></pre>
+
+<pre><code class="language-python">In [56]: import sys; sys.maxunicode  # python2是两个字节
+Out[56]: 65535
+</code></pre>
+
+<p>注[2]：python3如何获得unicode码。</p>
+
+<p>注[3]：常见的有UTF8和UTF16，分别表示以8位和16位为单位对unicode进行编码。</p>
+
+<p>注[4]：需要补充一点的是，str类型的字符其具体的编码格式是UTF-8还是GBK，还是其他格式，根据操作系统相关。这点我也需要再理清楚一下。</p>
+
+<p>注[5]：str和unicode混着使用，除了<code>+</code>外，其他很多情况也都会implicityly decode和encode。
+    <code>python
+    &quot;Title %s&quot; % my_unicode # 'Title' -&gt; decode
+    u'Title %s' % my_utf8  # my_utf8 -&gt; decode
+    print my_unicode       # 我的环境竟然没有出错，不是应该ascii encode错了。
+</code></p>
               
             </div>
           </div>
@@ -353,7 +448,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/python-advanced/">Python Advanced</a>
 
                   </div>
                 
@@ -366,7 +461,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/" data-tooltip="数据结构与算法之哈希Hashing">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -374,7 +469,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" data-tooltip="Linux文件系统">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/python2%E5%92%8Cpython3%E5%B9%B6%E5%AD%98/" data-tooltip="Python2和Python3并存">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -392,7 +487,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E6%90%9C%E7%B4%A2search/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/python%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -401,7 +496,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+          <a class="post-action-btn btn btn--default" href="#">
         
           <i class="fa fa-list"></i>
         </a>
@@ -430,7 +525,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/" data-tooltip="数据结构与算法之哈希Hashing">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -438,7 +533,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/linux%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" data-tooltip="Linux文件系统">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/python2%E5%92%8Cpython3%E5%B9%B6%E5%AD%98/" data-tooltip="Python2和Python3并存">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -456,7 +551,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E6%90%9C%E7%B4%A2search/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/python%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -465,7 +560,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+          <a class="post-action-btn btn btn--default" href="#">
         
           <i class="fa fa-list"></i>
         </a>
@@ -480,7 +575,7 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%25E4%25B8%258E%25E7%25AE%2597%25E6%25B3%2595%25E4%25B9%258B%25E6%2590%259C%25E7%25B4%25A2search%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2Fpython%25E4%25B8%25AD%25E7%259A%2584%25E7%25BC%2596%25E7%25A0%2581%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
