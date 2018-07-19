@@ -270,11 +270,11 @@
 
 <h5 id="编码与解码">编码与解码</h5>
 
-<p>将字符转换为字节的过程叫做编码encode；反过来，将字节转换成字符的过程叫做解码。</p>
+<p>将<font style="color:red">字符转换为字节的过程叫做编码encode</font>；反过来，将字节转换成字符的过程叫做解码。</p>
 
 <p><img src="https://363549406.github.io/images/python_encoding/encode_decode.png" alt="encode_decode" /></p>
 
-<p>这里有个问题，我的字符<code>&quot;a&quot;</code>为什么编码成了<code>0110001</code>，而不是<code>01010101</code>这种动词打次的节奏？这就有了字符集的概念，它为包含的每一个字符指定了一个唯一数字（编码）。在这里<code>a</code>的编码是<code>97</code>写成二进制就是<code>0110001</code>。下面介绍两种字符集ASCII和Unicode。</p>
+<p>这里有个问题，我的字符<code>&quot;a&quot;</code>为什么编码成了<code>0110001</code>，而不是<code>01010101</code>这种动词打次的节奏？这就有了字符集的概念，它为包含的每一个字符指定了一个唯一数字（编码）。在这里<code>a</code>的编码是<code>97</code>写成二进制就是<code>0110001</code>。<font style="color:red">下面介绍两种字符集ASCII和Unicode</font>。</p>
 
 <h5 id="ascii">ASCII</h5>
 
@@ -284,15 +284,15 @@
 
 <h5 id="unicode">Unicode</h5>
 
-<p>为了统一地球上所有字母、符号，ISO（国际标准化组织）制定了Universal Multiple-Octet Coded Character Set，简称UCS，俗称Unicode。它给世界范围内每个character指定了一个唯一数字。字符与Unicode码表<a href="https://www.unicode.org/charts/">unicode-chart</a></p>
+<p>为了统一地球上所有字母、符号，ISO（国际标准化组织）制定了Universal Multiple-Octet Coded Character Set，简称UCS，俗称Unicode。它给世界范围内每个character指定了一个<font style="color:red">唯一数字</font>。字符与Unicode码表<a href="https://www.unicode.org/charts/">unicode-chart</a></p>
 
 <p>Unicode有两种格式：UCS-2和UCS-4，分别表示使用2个字节和4个字节编码。如在python2中<code>字</code>的UCS编码是<code>5b57</code>就是两个字节[1]。不过两个字节最多表示65535个字符，而4个字节可以表示到100多万个字符。</p>
 
-<p>有了统一Unicode码后，这里就涉及到了如何把一个Unicode码转换成Bytes。</p>
+<p>有了统一Unicode码后，这里就涉及到了<font style="color:red">如何把一个Unicode码转换成Bytes</font>。</p>
 
 <h5 id="utf-8">UTF-8</h5>
 
-<p>UTF-8 (Unicode Transformation Format)就是最主要的一种将Unicode码<code>U+597D</code>转换成字节<code>\xe5\xa5\xbd</code>的编码方式[3]。它是一套以8位为一个编码单位的可变长编码，会将一个unicode码编码为1到4个字节。</p>
+<p><font style="color:red">UTF-8 (Unicode Transformation Format)就是最主要的一种将Unicode码<code>U+597D</code>转换成字节<code>\xe5\xa5\xbd</code>的编码方式[3]</font>。它是一套以8位为一个编码单位的可变长编码，会将一个unicode码编码为1到4个字节。</p>
 
 <p>使用UTF-8编码后，原来的ASCII字符集中的字符还是使用一个字节表示，这是对与ASCII很好的兼容性。</p>
 
@@ -330,7 +330,7 @@
 <p>以汉字<code>好</code>为例unicode码为<code>597D</code>，对应的区间是<code>0000 0800--0000 FFFF</code>从上表可对应到3个字节的UTF-8编码，通过如下示例中转换最终得到16进制utf-8码<code>\xe5\xa5\xbd</code>。</p>
 
 <pre><code class="language-text">    中文        好
-    unicode         0101   100101   111101
+    unicode         0101   100101   111101  # U+597D
     编码规则     1110xxxx 10xxxxxx 10xxxxxx
                 --------------------------
     utf-8       11100101 10100101 10111101
@@ -382,7 +382,7 @@ File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
 </code></pre></li>
 
-<li><p>str和unicode混着使用时，implicityly decode[5]。实际是使用<code>sys.getdefaultencoding()</code>来decode了str后和unicode做字符串连接。</p>
+<li><p>str和unicode混着使用时，<font style="color:red">implicityly decode[5]</font>。实际是使用<code>sys.getdefaultencoding()</code>来decode了str后和unicode做字符串连接。</p>
 
 <pre><code class="language-python">&gt;&gt; u'你好' + 'world'
 u'\u4f60\u597dworld'
@@ -402,6 +402,10 @@ print '你好'
 <h1 id="python3">Python3</h1>
 
 <p>Python3中，我还没有用起来。</p>
+
+<!-- 另外，.py文件里的coding设置的是.py文件的字符编码，这跟python程序在运行时的默认编码是两回事，这个东西我感觉你也没说清楚 -->
+
+<!-- 理解差不多了，最后再加点实战更好。从setdefaultencoding到chardet模块。有了这些工具，应该就能轻松应对各种字符编码和字符集问题了 -->
 
 <hr />
 
@@ -434,11 +438,9 @@ Out[56]: 65535
 
 <p>注[5]：str和unicode混着使用，除了<code>+</code>外，其他很多情况也都会implicityly decode和encode。</p>
 
-<pre><code>```python
-&quot;Title %s&quot; % my_unicode # 'Title' -&gt; decode
+<pre><code class="language-python">&quot;Title %s&quot; % my_unicode # 'Title' -&gt; decode
 u'Title %s' % my_utf8  # my_utf8 -&gt; decode
 print my_unicode       # 我的环境竟然没有出错，不是应该ascii encode错了。
-```
 </code></pre>
               
             </div>

@@ -118,25 +118,25 @@
   </url>
   
   <url>
-    <loc>https://363549406.github.io/categories/computer-networking/</loc>
-    <lastmod>2018-07-12T18:12:25+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://363549406.github.io/tags/computer-networking/</loc>
     <lastmod>2018-07-12T18:12:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://363549406.github.io/categories/linux/</loc>
-    <lastmod>2018-07-07T15:23:25+08:00</lastmod>
+    <loc>https://363549406.github.io/categories/computer-networking/</loc>
+    <lastmod>2018-07-12T18:12:25+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://363549406.github.io/tags/linux/</loc>
+    <lastmod>2018-07-07T15:23:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://363549406.github.io/categories/linux/</loc>
     <lastmod>2018-07-07T15:23:25+08:00</lastmod>
     <priority>0</priority>
   </url>
