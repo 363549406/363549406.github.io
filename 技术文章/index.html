@@ -1,8 +1,6 @@
 
 
   
-    
-  
 
 
   
@@ -22,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>数据结构与算法之堆Stack</title>
+    <title>技术文章汇总</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
@@ -30,18 +28,15 @@
     
 
     
-    <meta name="description" content="线性数据结构（linear data structure）第一讲堆（stack）
-">
-    <meta property="og:description" content="线性数据结构（linear data structure）第一讲堆（stack）
-">
+    <meta name="description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数  web 跨域 ">
+    <meta property="og:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数  web 跨域 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据结构与算法之堆Stack">
-    <meta property="og:url" content="/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/">
+    <meta property="og:title" content="技术文章汇总">
+    <meta property="og:url" content="/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="线性数据结构（linear data structure）第一讲堆（stack）
-">
+    <meta name="twitter:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数  web 跨域 ">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -78,7 +73,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
+      <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://363549406.github.io/">Snail Mu</a>
@@ -98,7 +93,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="4">
+      <nav id="sidebar" data-behavior="1">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -218,7 +213,7 @@
 
       
 
-      <div id="main" data-behavior="4"
+      <div id="main" data-behavior="1"
         class="
                hasCoverMetaIn
                ">
@@ -228,234 +223,48 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      数据结构与算法之堆Stack
+      技术文章汇总
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-06-30T15:05:25&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-07-30T15:53:09&#43;08:00">
         
-  六月 30, 2018
+  七月 30, 2018
 
       </time>
     
     
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
-    
-  
-
   </div>
 
 </div>
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>线性数据结构（linear data structure）第一讲堆（stack）
-</p>
+              
 
-<p>堆的添加和移除原则为：后入先出（last-in first-out, LIFO）。生活中书桌上的一摞书、浏览网页时返回键，这里都有堆的概念。</p>
-
-<p>堆的操作：</p>
+<h1 id="redis">Redis</h1>
 
 <ul>
-<li><code>Stack()</code> 创建一个新堆，返回空的堆。</li>
-<li><code>push(item)</code> 在堆的顶部添加一个元素，返回None。</li>
-<li><code>pop()</code> 从堆的顶部移除一个元素，返回移除的元素。</li>
-<li><code>peek()</code> 返回堆顶部元素，不从堆中移除。</li>
-<li><code>is_empty()</code> 判断堆是否为空，返回True或者False。</li>
-<li><code>size()</code> 返回堆中元素个数。</li>
+<li><a href="https://mp.weixin.qq.com/s/Z4a8wbWvPDGFTkKJH0X9VQ">10个常见&rdquo;刁钻&rdquo;的Redis面试问题</a></li>
+<li><a href="https://blog.csdn.net/lihao21/article/details/49104695">使用Redis SETNX 命令实现分布式锁</a> - set if not exist设置锁</li>
+<li><a href="https://blog.csdn.net/xlgen157387/article/details/79470556">为什么说Redis是单线程的以及Redis为什么这么快！</a></li>
+<li><a href="https://blog.csdn.net/zhang197093/article/details/74615717">Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN</a></li>
+<li><a href="http://kaito-kidd.com/2016/12/26/delay-queue-based-on-redis/">基于Redis实现延迟队列</a> - 使用SortedSet</li>
+<li><a href="https://www.jianshu.com/p/bedec93e5a7b">Redis持久化</a> - bgsave全量持久化和aof增量持久化</li>
+<li><a href="https://blog.csdn.net/g0_hw/article/details/69831213">Redis性能提升-Pipeline和Batch操作</a> - 减少tcp请求响应次数</li>
 </ul>
 
-<p>堆的实现[1]：</p>
+<h1 id="web">web</h1>
 
-<pre><code class="language-python">class Stack:
-    def __init__(self):
-        self.items = []
-    def is_empty(self):
-        return self.items == []
-    def push(self, item):
-        self.items.append(item)
-    def pop(self):
-        return self.items.pop()
-    def peek(self):
-        return self.items[-1]
-    def size(self):
-        return len(self.items)
-</code></pre>
+<h2 id="跨域">跨域</h2>
 
-<p>堆的优点：</p>
-
-<ul>
-<li>操作很快。无论堆大还是小，基本操作都离不开对堆顶上数据的操作。</li>
-</ul>
-
-<p>堆的用处：</p>
-
-<ul>
-<li>符号匹配</li>
-<li>深度优先搜索中用于记录将要被访问的节点</li>
-<li>前缀、中缀、后缀表达式</li>
-</ul>
-
-<blockquote>
-<p>判断是否是需要用堆：看场景里面有没有 LIFO、reverse的需求 - myself : )</p>
-</blockquote>
-
-<hr />
-
-<h5 id="符号匹配">符号匹配</h5>
-
-<p>问题描述：输入一个字符串，判断字符串中<code>{、}、[、]、(、)</code>符号是否正确[2]，并返回True或者False。</p>
-
-<p>解决思路：遇到开合符号存入堆，遇到闭合符号检查是否和堆顶符号match。正确情况下处理结束时，堆应该为空。</p>
-
-<pre><code class="language-python">def is_valid(input_string):
-    stack = Stack()
-    pairs = {')': '(', ']': '[', '}': '{'}
-    for ch in input_string:
-        if ch in pairs.values():
-            stack.push(ch)
-        elif ch in pairs:
-            if stack.is_empty() or stack.pop() != pairs[ch]:
-                return False
-    return stack.is_empty()
-&gt;&gt;&gt; assert(is_valid('{ { ( [ ] [ ] ) } ( ) }')) == True
-</code></pre>
-
-<h5 id="中缀-前缀-后缀表达式">中缀、前缀、后缀表达式</h5>
-
-<p>问题描述：将中缀表达式转换成前缀、后缀表达式[3]。</p>
-
-<p>解决思路：</p>
-
-<ul>
-<li>在转换为后缀表达式时将操作符压入堆
-
-<ul>
-<li>操作符有优先级；</li>
-<li>当遇到<code>)</code>时，应该在堆中一直找到<code>(</code>，其中<code>(</code>和<code>)</code>都不会保留。</li>
-<li>当遇到优先级小的操作符时，应该在堆中一直pop直到找到比它优先级低的操作符；</li>
-<li>最后堆中操作符应该全部被取出。</li>
-</ul></li>
-<li>在转换为前缀表达式时将操作数和操作符压入不同的堆
-
-<ul>
-<li>当遇到优先级更低的操作符，把操作符和操作数组合成新的操作数，存起来 new_operand</li>
-<li>最后操作符堆中为空，操作数堆中应该只有一个元素，最终结果</li>
-</ul></li>
-</ul>
-
-<pre><code class="language-python">def infix_to_postfix(expr):
-    prec = {'*': 3, '/': 3, '+': 2, '-': 2, '(': 1}
-    op_stack = Stack()
-    postfix_list = []
-
-    for token in expr.split():
-        if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            postfix_list.append(token)
-        elif token == '(':
-            op_stack.push(token)
-        elif token == ')':
-            while op_stack.peek() != '(':
-                postfix_list.append(op_stack.pop())
-        else:
-            while not op_stack.is_empty() and \
-                prec[op_stack.peek()] &gt;= prec[token]:
-                    postfix_list.append(op_stack.pop())
-            op_stack.push(token)
-    while not op_stack.is_empty():
-        postfix_list.append(op_stack.pop())
-    return ' '.join(postfix_list)
-&gt;&gt;&gt; assert(infix_to_postfix('A * B + C * D')) == 'A B * C D * +'
-&gt;&gt;&gt; assert(infix_to_postfix('( A + B ) * C - ( D - E ) * ( F + G )')) == 'A B + C * D E - F G + * -'
-</code></pre>
-
-<pre><code class="language-python">def infix_to_prefix(expr):
-    prec = {'*': 3, '/': 3, '+': 2, '-': 2, '(': 1}
-    operator_stack = Stack()
-    operand_stack = Stack()
-
-    def new_operand(operator_s, operand_s):
-        oper = operator_s.pop()
-        right = operand_s.pop()
-        left = operand_s.pop()
-        return ' '.join([oper, left, right])
-
-    for token in expr.split():
-        if token in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            operand_stack.push(token)
-        elif token == ')':
-            while operator_stack.peek() != '(':
-                operand_stack.push(new_operand(operator_stack, operand_stack))
-            operator_stack.pop() # pop '('
-        elif operator_stack.is_empty() or token == '(' or prec[token] &gt; prec[operator_stack.peek()]:
-            operator_stack.push(token)
-        elif prec[token] &lt;= prec[operator_stack.peek()]:
-            while not operator_stack.is_empty() and prec[token] &lt;= prec[operator_stack.peek()]:
-                operand_stack.push(new_operand(operator_stack, operand_stack))
-            operator_stack.push(token)
-
-    while not operator_stack.is_empty():
-        operand_stack.push(new_operand(operator_stack, operand_stack))
-
-    return operand_stack.peek()
-&gt;&gt;&gt; print infix_to_prefix('A + B')
-+ A B
-&gt;&gt;&gt; print infix_to_prefix('A + B * C')
-+ A * B C
-&gt;&gt;&gt; print infix_to_prefix('( A + B ) * C')
-* + A B C
-&gt;&gt;&gt; print infix_to_prefix('A + B * C + D')
-+ + A * B C D
-&gt;&gt;&gt; print infix_to_prefix('( A + B ) * ( C + D )')
-* + A B + C D
-&gt;&gt;&gt; print infix_to_prefix('A * B + C * D')
-+ * A B * C D
-&gt;&gt;&gt; print infix_to_prefix('A + B + C + D')
-+ + + A B C D
-</code></pre>
-
-<p><strong>参考资料</strong>：</p>
-
-<ul>
-<li><a href="http://interactivepython.org/runestone/static/pythonds/index.html">Problem Solving with Algorithms and Data Structures - Chapter 3</a></li>
-<li><a href="https://www.interviewcake.com/data-structures-reference">Data Structures Reference - For coding interviews or computer science classes</a></li>
-<li><a href="https://github.com/keon/algorithms">Github - Python - 数据结构和算法实现</a></li>
-</ul>
-
-<hr />
-
-<p>注[1]: 重点知道数据结构有哪些操作。在实现上没有考虑pop前检查堆是不是为空等。<strong>参考资料3中后多种实现</strong>。</p>
-
-<p>注[2]: 开合符号和闭合符号有正确的对应关系。</p>
-
-<pre><code class="language-text">{ { ( [ ] [ ] ) } ( ) }
-[ [ { { ( ( ) ) } } ] ]
-[ ] [ ] [ ] ( ) { }
-</code></pre>
-
-<p>注[3]: 中缀是指操作符在两个操作数中间，好比<code>A + B</code>。如果将操作符移到两个操作数之前，表达式则被改写为<code>+ A B</code>这种前缀的形式。同理，后缀的形式为<code>A B +</code>。将中缀改为前缀或后缀的好处是，前缀和后缀表达式可以在没有括号的情况下依旧准确的表达复杂表达式的计算顺序。更多说明可以参见，参考资料1中3.9章节。如<code>+ + A * B C D</code>此类前缀表达式，只需在遇到操作符后有两个操作数的时候执行计算。
-<code>+ + A (B * C) D</code> -&gt; <code>+ (A + (B * C)) D</code> -&gt; <code>((A + (B * C)) + D)</code></p>
               
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">标签</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-
-                  </div>
-                
               
             
             
@@ -465,7 +274,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/" data-tooltip="数据结构与算法之队列Queue">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -473,7 +282,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python-gil/" data-tooltip="Python GIL">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -491,7 +300,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -521,7 +330,7 @@
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
         
   <div class="post-actions-wrap">
       <nav >
@@ -529,7 +338,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E9%98%9F%E5%88%97queue/" data-tooltip="数据结构与算法之队列Queue">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -537,7 +346,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/06/python-gil/" data-tooltip="Python GIL">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -555,7 +364,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A0%86stack/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -574,12 +383,12 @@
 
 
       </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F06%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%25E4%25B8%258E%25E7%25AE%2597%25E6%25B3%2595%25E4%25B9%258B%25E5%25A0%2586stack%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F%25E6%258A%2580%25E6%259C%25AF%25E6%2596%2587%25E7%25AB%25A0%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>

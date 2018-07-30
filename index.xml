@@ -6,10 +6,19 @@
     <description>Recent content on Snail Mu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Jul 2018 22:51:25 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Jul 2018 15:53:09 +0800</lastBuildDate>
     
 	<atom:link href="https://363549406.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术文章汇总</title>
+      <link>https://363549406.github.io/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Mon, 30 Jul 2018 15:53:09 +0800</pubDate>
+      
+      <guid>https://363549406.github.io/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</guid>
+      <description> Redis  10个常见&amp;rdquo;刁钻&amp;rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &amp;ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数  web 跨域 </description>
+    </item>
     
     <item>
       <title>Python中的编码</title>
