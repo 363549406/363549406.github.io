@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.46 with theme Tranquilpeak 0.4.3-BETA">
-    <title>数据结构与算法之哈希Hashing</title>
+    <title>Python项目虚拟环境pipenv</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
@@ -30,17 +30,20 @@
     
 
     
-    <meta name="description" content="算法第三讲哈希（hashing)
+    <meta name="description" content="Requests作者Kenneth Reitz的另一个作品。
+
 ">
-    <meta property="og:description" content="算法第三讲哈希（hashing)
+    <meta property="og:description" content="Requests作者Kenneth Reitz的另一个作品。
+
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数据结构与算法之哈希Hashing">
-    <meta property="og:url" content="/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/">
+    <meta property="og:title" content="Python项目虚拟环境pipenv">
+    <meta property="og:url" content="/2018/08/python%E9%A1%B9%E7%9B%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83pipenv/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="算法第三讲哈希（hashing)
+    <meta name="twitter:description" content="Requests作者Kenneth Reitz的另一个作品。
+
 ">
     
       <meta name="twitter:creator" content="@snail_mu">
@@ -238,15 +241,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      数据结构与算法之哈希Hashing
+      Python项目虚拟环境pipenv
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-06T20:30:00&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-08-10T20:22:25&#43;08:00">
         
-  七月 6, 2018
+  八月 10, 2018
 
       </time>
     
@@ -255,7 +258,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://363549406.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b8%8e%e7%ae%97%e6%b3%95">数据结构与算法</a>
+      <a class="category-link" href="https://363549406.github.io/categories/python">python</a>
     
   
 
@@ -265,46 +268,126 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>算法第三讲哈希（hashing)
-</p>
+              <p>Requests作者Kenneth Reitz的另一个作品。</p>
 
-<p>首先明白哈希表[1]，在wiki(en)中定义为：根据键值（key）而直接访问的数据结构。哈希表通过一个hash function把key映射到表中一个位置来加快查询的速度。</p>
+<p></p>
 
-<p>举一个简单的例子：现在有0-10这11个位置或者slots。有<code>54、26、93、17、77、33</code>这6个数。定义一个哈希函数为<code>(h(item) = item % 11)</code>。这6个数会被映射到<code>10、4、5、6、0、9</code>这6个位置。当问item这个数是否在集合中时，只需要计算h(item)，找到位置，比较位置上数。<strong>复杂度O(1)</strong>。[2]</p>
+<blockquote>
+<p>Pipenv is a dependency manager for Python projects. While pip can install python packages, Pipenv is recommanded as it&rsquo;s a higher-level tool that simplifies dependenvy management for common use cases.</p>
+</blockquote>
 
-<p>在哈希中会提到的一个概念：<strong>冲突</strong>。映射后，不同的item有相同的h(item)，那对于有冲突的key，就不能做到直接访问[3]。</p>
+<p>自动为 project 创建<code>virtualenv</code>。安装卸载包的时候会同步更新最新的包信息到<code>Pipfile</code>中。还会生成<code>Pipfile.lock</code>，其中包含了所有安装包和安装包的依赖，版本信息，hash 值等。</p>
 
-<p>解决冲突的方法之一[4]：每个slot中不是存放一个item，而是存放一个item的集合。</p>
+<p>需要的依赖：Python &amp; pip</p>
 
-<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<h2 id="安装pipenv">安装Pipenv</h2>
+
+<p><code>pip install --user pipenv</code> # 安装到user下</p>
+
 <ul>
-<li><a href="#哈希算法-md5-sha-1">哈希算法 - md5、sha-1</a></li>
+<li>Mac 安装不上的问题 <a href="http://pipenv.readthedocs.io/en/latest/install/#installing-pipenv">install pipenv</a></li>
 </ul>
-</nav>
 
-<h1 id="哈希算法-md5-sha-1">哈希算法 - md5、sha-1</h1>
+<h2 id="基本使用">基本使用</h2>
 
-<p>在密码学中或者在做web开发中，经常提到的md5、sha1其实也都是哈希算法。经常用它们生成等长的字符串作为校验值，验证消息的完整性。</p>
+<h3 id="创建虚拟环境">创建虚拟环境</h3>
+
+<ul>
+<li><code>pipenv</code></li>
+<li><code>pipenv --python 3</code>：使用python3创建</li>
+</ul>
+
+<h3 id="卸载虚拟环境">卸载虚拟环境</h3>
+
+<ul>
+<li>在项目目录中使用<code>pipenv --rm</code>直接删除</li>
+<li>也可以找到virtualenv文件夹的path，直接删文件夹呀</li>
+</ul>
+
+<h3 id="安装包">安装包</h3>
+
+<ol>
+<li>使用pipenv自动安装。在目录中使用<code>pipenv install PACKAGE_NAME</code>时会自动创建虚拟环境。</li>
+<li>使用requirements.txt、Pipfile、Pipfile.lock文件安装包
+
+<ul>
+<li>从<code>requirements.txt</code>文件安装：<code>pipenv install -r requirements.txt</code>（如果只有 requirements.txt 文件，<code>pipenv install</code>会自动从 requirements.txt 文件加载并生成 Pipfile）</li>
+<li>从<code>Pipfile</code>文件安装：<code>pipenv install</code></li>
+<li>从<code>Pipfile.lock</code>文件安装：<code>pipenv install --ignore-pipfile</code></li>
+</ul></li>
+</ol>
+
+<p>部分参数说明：</p>
+
+<ul>
+<li><code>--two / three</code>：使用系统的 python2 或者 3</li>
+<li><code>--dev</code>：install both <code>develop</code> and <code>default</code> packages from <code>Pipfile.lock</code>。如我的pylint包就安装在dev环境中</li>
+<li><code>--system</code> - Use the system <code>pip</code> command rather than the one from your virtualenv.</li>
+<li><code>--ignore-pipfile</code> — Ignore the <code>Pipfile</code> and install from the <code>Pipfile.lock</code>.</li>
+<li><code>--skip-lock</code> — Ignore the <code>Pipfile.lock</code> and install from the <code>Pipfile</code>. In addition, do not write out a <code>Pipfile.lock</code> reflecting changes to the <code>Pipfile</code>.</li>
+</ul>
+
+<h3 id="卸载包">卸载包</h3>
+
+<p><code>pipenv uninstall</code></p>
+
+<p>参数说明（也支持pipenv isntall的参数）：</p>
+
+<ul>
+<li><code>--all</code> — This parameter will purge all files from the virtual environment, but leave the Pipfile untouched.</li>
+<li><code>--all-dev</code> — This parameter will remove all of the development packages from the virtual environment, and remove them from the Pipfile.</li>
+</ul>
+
+<h3 id="在虚拟环境中运行-python">在虚拟环境中运行 Python</h3>
+
+<ul>
+<li><code>pipenv run python PYTHON_FILE.py</code></li>
+<li><code>pipenv shell</code>: 先进入虚拟环境后，在运行</li>
+</ul>
+
+<h3 id="查看信息">查看信息</h3>
+
+<ul>
+<li><code>pipenv --py</code>: 查看python interpreter</li>
+<li><code>pipenv --venv</code>：查看虚拟环境的路径</li>
+<li><code>pipenv graph</code>：查看安装的包信息</li>
+<li><code>pipenv --where</code>：locate the project</li>
+</ul>
+
+<h2 id="pipenv-workflow">Pipenv workflow</h2>
+
+<pre><code class="language-shell">$ pipenv install                  #  1. 如果有常用的包文件，就从文件安装
+$ pipenv install &lt;package&gt;        #  2. 安装新的包
+$ pipenv lock                     #  3. 生成Pipfile.lock文件
+$ pipenv install --ignore-pipfile #  4. 再新的环境中部署时直接使用Pipfile.lock文件
+</code></pre>
+
+<h2 id="advanced-usage-of-pipenv">Advanced Usage of Pipenv</h2>
+
+<p>其实基本使用直接在命令行里面使用pipenv命令查看使用help查看。</p>
+
+<h2 id="在ide中使用">在IDE中使用</h2>
+
+<p>无论是PyCharm中还是VSCode中我都会为每一个项目配置自己的虚拟环境。</p>
+
+<ul>
+<li>PyCharm在Project Interpreter那里配置virtualenv environment就可行了。</li>
+<li>VSCode在Settings里面配置<code>python.pythonPath</code>（如果没有记错的话）。</li>
+</ul>
 
 <hr />
 
-<p>注[1]: hash table叫哈希表、散列表</p>
-
-<p>注[2]: 除了例子中取余数的方式外，还有folding method、mid-square method等。</p>
+<p>参考资料：</p>
 
 <ul>
-<li>folding method方法将item划分为等大的块，将各个块加一起后经过映射到不同的slots上。如电话:436-555-4601 -&gt; (43,65,55,46,01) -&gt; 43+65+55+46+01 = 120 -&gt; 210 % 11 = 1。</li>
-<li>mid-square method方法先求平方，在取结果的中间部分，最后映射到不同的slots上。如：44 -&gt; 44平方 = 1936 -&gt; 中间数字 1(93)6 = 93 -&gt; 93 % 11 = 5。</li>
-</ul>
-
-<p>注[3]: 随着item数量的增多，想要不产生冲突或者说碰撞，我们就需要增加slot的个数。但是，当item的数量很大时，这种提升搜索性能的方式就不太可行。所以，我们不需要刻意的避免冲突。<strong>在尽量减少冲突的情况下，尽量均匀的将item分布在不同的slot中，依旧可以提高搜索速度</strong>。</p>
-
-<p>注[4]: 除了这种存放item集合的方式，还有开放寻址方式、扩展线性探测方式。</p>
+<li><a href="https://github.com/pypa/pipenv">pipenv-github</a></li>
+<li><a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">python-guide-virtualenvs</a></li>
+<li><a href="https://docs.pipenv.org/">pipenv-doc</a>
 
 <ul>
-<li><p>开放寻址方式：如果h(item)的位置已经有其他item，就依次移动，直到找到一个为None的slot来存放item。在搜索、查找时，也是先找到h(item)位置，然后依次往后check，如果直到发现了新None也没有匹配上，说明item不在。</p></li>
-
-<li><p>扩展线性探测方式：思路就是如果h(item)的位置被占用，就rehash(item+skip)。</p></li>
+<li><a href="https://docs.pipenv.org/basics/">pipenv-doc-basic</a></li>
+<li><a href="https://docs.pipenv.org/advanced/">pipenv-doc-advanced</a></li>
+</ul></li>
 </ul>
               
             </div>
@@ -317,7 +400,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/%E7%AE%97%E6%B3%95/">算法</a>
+  <a class="tag tag--primary tag--small" href="https://363549406.github.io/tags/python-advanced/">Python Advanced</a>
 
                   </div>
                 
@@ -330,7 +413,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/" data-tooltip="Linux网络状态">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -338,7 +421,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E6%90%9C%E7%B4%A2search/" data-tooltip="数据结构与算法之搜索Search">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/08/mysql%E8%87%AA%E5%B8%A6%E7%9A%844%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93/" data-tooltip="MySQL自带的4个数据库">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -356,7 +439,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/08/python%E9%A1%B9%E7%9B%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83pipenv/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -365,7 +448,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+          <a class="post-action-btn btn btn--default" href="#">
         
           <i class="fa fa-list"></i>
         </a>
@@ -394,7 +477,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/linux%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/" data-tooltip="Linux网络状态">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -402,7 +485,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E6%90%9C%E7%B4%A2search/" data-tooltip="数据结构与算法之搜索Search">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://363549406.github.io/2018/08/mysql%E8%87%AA%E5%B8%A6%E7%9A%844%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93/" data-tooltip="MySQL自带的4个数据库">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -420,7 +503,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E5%93%88%E5%B8%8Chashing/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/2018/08/python%E9%A1%B9%E7%9B%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83pipenv/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -429,7 +512,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+          <a class="post-action-btn btn btn--default" href="#">
         
           <i class="fa fa-list"></i>
         </a>
@@ -444,7 +527,7 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F07%2F%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2593%25E6%259E%2584%25E4%25B8%258E%25E7%25AE%2597%25E6%25B3%2595%25E4%25B9%258B%25E5%2593%2588%25E5%25B8%258Chashing%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F2018%2F08%2Fpython%25E9%25A1%25B9%25E7%259B%25AE%25E8%2599%259A%25E6%258B%259F%25E7%258E%25AF%25E5%25A2%2583pipenv%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
