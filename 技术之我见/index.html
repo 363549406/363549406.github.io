@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.46 with theme Tranquilpeak 0.4.3-BETA">
-    <title>技术文章汇总</title>
+    <title>技术之我见</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
 
@@ -28,15 +28,15 @@
     
 
     
-    <meta name="description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
-    <meta property="og:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
+    <meta name="description" content="">
+    <meta property="og:description" content="">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="技术文章汇总">
-    <meta property="og:url" content="/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">
+    <meta property="og:title" content="技术之我见">
+    <meta property="og:url" content="/%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%88%91%E8%A7%81/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
+    <meta name="twitter:description" content="">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -233,15 +233,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      技术文章汇总
+      技术之我见
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-30T15:53:09&#43;08:00">
+      <time itemprop="datePublished" datetime="2018-08-01T15:53:09&#43;08:00">
         
-  七月 30, 2018
+  八月 1, 2018
 
       </time>
     
@@ -252,115 +252,7 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              
-
-<h1 id="redis">Redis</h1>
-
-<ul>
-<li><a href="https://mp.weixin.qq.com/s/Z4a8wbWvPDGFTkKJH0X9VQ">10个常见&rdquo;刁钻&rdquo;的Redis面试问题</a></li>
-<li><a href="https://blog.csdn.net/lihao21/article/details/49104695">使用Redis SETNX 命令实现分布式锁</a> - set if not exist设置锁，锁超时机制不是十分可靠</li>
-<li><a href="https://blog.csdn.net/xlgen157387/article/details/79470556">为什么说Redis是单线程的以及Redis为什么这么快！</a></li>
-<li><a href="https://blog.csdn.net/zhang197093/article/details/74615717">Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN</a></li>
-<li><a href="http://kaito-kidd.com/2016/12/26/delay-queue-based-on-redis/">基于Redis实现延迟队列</a> - 使用SortedSet</li>
-<li><a href="https://www.jianshu.com/p/bedec93e5a7b">Redis持久化</a> - bgsave全量持久化和aof增量持久化</li>
-<li><a href="https://blog.csdn.net/g0_hw/article/details/69831213">Redis性能提升-Pipeline和Batch操作</a> - 减少tcp请求响应次数</li>
-<li>redis数据淘汰的集中模式</li>
-<li>什么是redis、优点、缺点</li>
-</ul>
-
-<h1 id="mysql">MySQL</h1>
-
-<ul>
-<li><a href="http://dbaplus.cn/news-11-1396-1.html?utm_source=tuicool&amp;utm_medium=referral">玩转processlist，高效追溯MySQL活跃连接数飙升根因</a></li>
-<li>事务 （<a href="http://www.hollischuang.com/archives/898）">http://www.hollischuang.com/archives/898）</a></li>
-<li>索引
-
-<ul>
-<li><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">http://blog.codinglabs.org/articles/theory-of-mysql-index.html</a></li>
-<li>MySQL索引背后的数据结构及算法原理</li>
-<li>聚集索引,非聚集索引,B-Tree,B+Tree,最左前缀原理</li>
-</ul></li>
-<li>乐观锁、悲观锁</li>
-</ul>
-
-<h1 id="数据存储">数据存储</h1>
-
-<ul>
-<li><a href="http://www.linkedkeeper.com/detail/blog.action?bid=1023">浅谈分布式锁</a> - redis缓存锁、zookeeper</li>
-<li>redis和memcache的优缺点比较</li>
-</ul>
-
-<h1 id="跨域">跨域</h1>
-
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/39466226">为什么给你设置重重障碍？讲一讲Web开发中的跨域</a> - csrf跨域请求伪造，CORS跨域资源共享</li>
-</ul>
-
-<h1 id="nginx">Nginx</h1>
-
-<ul>
-<li>apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。</li>
-</ul>
-
-<h1 id="tornado">Tornado</h1>
-
-<ul>
-<li><a href="https://blog.csdn.net/slvher/article/details/47134433">Python Web框架Tornado的异步处理代码示例</a></li>
-<li><a href="https://www.jianshu.com/p/fe9006618932">一个进程处理10K连接：分析Tornado源码</a></li>
-</ul>
-
-<h1 id="业务">业务</h1>
-
-<ul>
-<li><a href="https://segmentfault.com/a/1190000008888926">秒杀系统优化方案之缓存、队列、锁设计思路</a></li>
-<li>用户密码：md5+salt方式</li>
-</ul>
-
-<h1 id="架构">架构</h1>
-
-<ul>
-<li><a href="https://mp.weixin.qq.com/s/BB_-t3lirbXhErdTlfuiNQ">李艳鹏：技术人如何修炼内功</a></li>
-</ul>
-
-<h1 id="唯一id">唯一id</h1>
-
-<ul>
-<li>uuid</li>
-<li>分布式id</li>
-</ul>
-
-<h1 id="python">python</h1>
-
-<ul>
-<li>线程安全的单例模式</li>
-<li>协程</li>
-<li>闭包</li>
-<li>垃圾回收机制</li>
-</ul>
-
-<h1 id="操作系统">操作系统</h1>
-
-<ul>
-<li>epoll、kqueue、select</li>
-<li>调度算法 - redis的淘汰机制</li>
-<li>死锁</li>
-<li>IPC进程间通信</li>
-</ul>
-
-<h1 id="网络">网络</h1>
-
-<ul>
-<li>http和https</li>
-</ul>
-
-<h1 id="restful架构">RESTful架构</h1>
-
-<h1 id="soap">SOAP</h1>
-
-<h1 id="rpc">RPC</h1>
-
-<h1 id="动态规划">动态规划</h1>
-
+              <p></p>
               
             </div>
           </div>
@@ -401,7 +293,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%88%91%E8%A7%81/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -465,7 +357,7 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://363549406.github.io/%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%88%91%E8%A7%81/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -489,7 +381,7 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F%25E6%258A%2580%25E6%259C%25AF%25E6%2596%2587%25E7%25AB%25A0%25E6%25B1%2587%25E6%2580%25BB%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2F363549406.github.io%2F%25E6%258A%2580%25E6%259C%25AF%25E4%25B9%258B%25E6%2588%2591%25E8%25A7%2581%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
