@@ -1,0 +1,145 @@
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
+
+
+#
+# 客户端配置：
+#
+[client]
+
+port = 3306                        # 和mysqld中保持一致、mysql服务默认在3306端口
+socket = /var/lib/mysql/mysql.sock # 和mysqld中保持一致
+default-character-set = utf8mb4
+
+# user = $USER                     # 需要修改
+# password = $PASSWORD             # 需要修改
+
+
+[mysqldump]
+# Do not buffer the whole result set in memory befor writing it to
+# file. Required for dumping very large tables
+quick                              # 没有指定 --quick 或 --opt 选项，会将整个结果集放在内存中
+
+max_allowed_packet = 32M           # 客户端与服务器之间通信的缓存区的最大大小
+
+
+[mysql]
+auto-rehash                        # 开启tab补全
+
+# Only allow UPDATES and DELETEs that use keys
+# safe-updates                     # 如果对mysql不是很熟悉建议开启 
+
+
+[myisamchk]
+key_buffer_size = 8M
+sort_buffer_size = 8M
+
+
+[mysqlhotcopy]
+interactive-timeout
+
+
+[mysql_safe]
+open_files_limit = 8192
+
+
+# MySQL服务器配置
+
+[mysqld]
+
+port = 3306
+basedir = /usr/lib64/mysql         # mysql的安装目录 - 可能需要修改
+datadir = /var/lib/mysql           # default
+socket = /var/lib/mysql/mysql.sock # default
+
+# 基本设置
+
+default_storage_engine = InnoDB    # 默认存储引擎
+character_set_server = utf8mb4     # 默认字符集和collation
+collation_server = utf8mb4_general_ci
+
+# 缓存和限制
+
+max_allowed_packet = 16M
+
+back_log = 64                      # 等待连接队列的最大值。不能大于操作系统的最大值。
+max_connections = 512              # 最大连接数。小于1000比较合适
+max_connect_errors = 128           # 防止暴力破解超过阈值后禁止连接。成功后清零
+max_user_connections = 256         # 单个user最大连接数。默认是0，不限制
+
+# thread_concurrency = 4           # < 5.6 建议使用CPU数 * 2 可以重复利用多核CPU的性能，官方文档中也说了是针对 Solaris systems. >= 5.6 版本中这个配置已经去掉了
+thread_cache_size = 64             # cache中保留多少线程用于重用。如果需要大量新连接的时候可以极大的减少线程创建的开销
+
+table_open_cache = 2048            # 所有线程打开的table数限制。增加这个值会增加mysqld需要的文件描述符。这样就要保证[mysql_safe]中open_file_limit最小为4096
+tmp_table_size = 128M
+
+read_buffer_size = 2M 
+read_rnd_buffer_size = 8M 
+
+query_cache_type = 1               # query cache用来缓存SELECT结果
+query_cache_size = 32M
+query_cache_limit = 1M             # 只缓存结果集小于query_cache_limit的query
+
+join_buffer_size = 2M
+sort_buffer_size = 2M 
+
+# general、error日志
+
+general_log = On
+general_log_file = /var/log/mysql/mysql_general.log
+log_error = /var/log/mysql/mysql_error.log
+
+# 慢查询
+
+slow-query-log = On                # 开启慢查询。slow_query_log_file存储在datadir路径，使用mysqldumpslow命令的时候会查找*-slow.log文件
+slow_query_log_file = mysql-slow.log
+long_query_time = 0.5              # query时间超过这个阈值才算慢查询。单位是s
+min_examined_row_limit = 100       # query必须检查的最少行数才算慢查询
+
+# bin log
+
+log-bin = On                       # 打开二进制日志功能
+binlog_format = mixed
+binlog_cache_size = 1M
+binlog_stmt_cache_size = 1M
+expire_logs_days = 7              # bin log占用空间大，设置自动清楚时间
+
+# 主从复制
+
+server-id = 1                      # 唯一的服务识别号。在master和slave上都需要设置
+
+# MyISAM存储引擎
+
+# Size of the Key Buffer, used to cache index blocks for MyISAM tables.
+# Do not set it larger than 30% of your available memory, as some memory
+# is also required by the OS to cache rows. Even if you're not using
+# MyISAM tables, you should still set it to 8-64M as it will also be
+# used for internal temporary disk tables.
+key_buffer_size = 64M             # 默认是8M调大了很多。
+bulk_insert_buffer_size = 32M
+myisam_sort_buffer_size = 10G
+myisam_repair_threads = 1
+myisam_recover_options = 'BACKUP,FORCE'
+
+# MEMORY variables
+
+max_heap_table_size = 16M          # 单个HEAP表大小。防止单个太大占用所有内存。这里用的就是我现在安装的default值。
+
+# InnoDB存储引擎
+
+innodb_buffer_pool_size = 512M     # 在一个独立使用MySQL的服务器上，建议使用物理内存的80%
+innodb_file_per_table = On         # 默认也是开启的。
+innodb_data_file_path = ibdata1:12M:autoextend
+innodb_autoextend_increment = 8    # > 5.6.6中默认值是64 (in megabytes) <= 5.6.6时默认值是8
+innodb_flush_log_at_trx_commit = 1 # 默认值也是1。
+innodb_log_buffer_size = 16M       # 用来缓存日志数据的缓存区。默认值也是16M
+innodb_log_file_size = 64M         # innodb_log_files_in_group所有文件sizede的总和为innodb_buffer_pool_size的25% ~ 100%比较合适。
+innodb_log_files_in_group = 2      # 2 - 3比较合适。
+innodb_max_dirty_pages_pct = 75    # 默认值是75。
+innodb_lock_wait_timeout = 120     # 在被回滚前一个事务应该等一个锁等多久
+
+innodb_support_xa = On             # 默认也是开启的。解决事务中断后binlog可能不一致的问题。
+
+# 其他
+# skip-name-resolve                # 禁用了hostname的解析。可以让MySQL登录连接变快速。
+# skip-networking                  # 如果只需要从本机连接数据库可以打开

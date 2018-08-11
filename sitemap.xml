@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://363549406.github.io/2018/08/mysql%E7%9A%84my.cnf%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2018-08-11T01:06:09+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://363549406.github.io/2018/08/python%E9%A1%B9%E7%9B%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83pipenv/</loc>
     <lastmod>2018-08-10T20:22:25+08:00</lastmod>
   </url>
@@ -169,19 +174,19 @@
   
   <url>
     <loc>https://363549406.github.io/tags/mysql/</loc>
-    <lastmod>2018-08-10T18:10:09+08:00</lastmod>
+    <lastmod>2018-08-11T01:06:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://363549406.github.io/categories/mysql/</loc>
-    <lastmod>2018-08-10T18:10:09+08:00</lastmod>
+    <lastmod>2018-08-11T01:06:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://363549406.github.io/post/</loc>
-    <lastmod>2018-08-10T20:22:25+08:00</lastmod>
+    <lastmod>2018-08-11T01:06:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -205,7 +210,7 @@
   
   <url>
     <loc>https://363549406.github.io/</loc>
-    <lastmod>2018-08-10T20:22:25+08:00</lastmod>
+    <lastmod>2018-08-11T01:06:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
