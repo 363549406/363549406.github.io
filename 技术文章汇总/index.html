@@ -28,15 +28,15 @@
     
 
     
-    <meta name="description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
-    <meta property="og:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
+    <meta name="description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁 我自己整理了一张mysql的思维导图 - 在整理的过程中补了很多知识点。  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  RabbitMQ Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  我们有两台mysql都可以写，自增id不会有问题么，机智的同事设置了auto-increment-offset|increment=2 可以部署redis来生成唯一id   python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
+    <meta property="og:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁 我自己整理了一张mysql的思维导图 - 在整理的过程中补了很多知识点。  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  RabbitMQ Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  我们有两台mysql都可以写，自增id不会有问题么，机智的同事设置了auto-increment-offset|increment=2 可以部署redis来生成唯一id   python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="技术文章汇总">
     <meta property="og:url" content="/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
+    <meta name="twitter:description" content=" Redis  10个常见&rdquo;刁钻&rdquo;的Redis面试问题 使用Redis SETNX 命令实现分布式锁 - set if not exist设置锁，锁超时机制不是十分可靠 为什么说Redis是单线程的以及Redis为什么这么快！ Redis遍历所有key的两个命令 &ndash; KEYS 和 SCAN 基于Redis实现延迟队列 - 使用SortedSet Redis持久化 - bgsave全量持久化和aof增量持久化 Redis性能提升-Pipeline和Batch操作 - 减少tcp请求响应次数 redis数据淘汰的集中模式 什么是redis、优点、缺点  MySQL  玩转processlist，高效追溯MySQL活跃连接数飙升根因 事务 （http://www.hollischuang.com/archives/898） 索引  http://blog.codinglabs.org/articles/theory-of-mysql-index.html MySQL索引背后的数据结构及算法原理 聚集索引,非聚集索引,B-Tree,B&#43;Tree,最左前缀原理  乐观锁、悲观锁 我自己整理了一张mysql的思维导图 - 在整理的过程中补了很多知识点。  数据存储  浅谈分布式锁 - redis缓存锁、zookeeper redis和memcache的优缺点比较  跨域  为什么给你设置重重障碍？讲一讲Web开发中的跨域 - csrf跨域请求伪造，CORS跨域资源共享  Nginx  apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。  RabbitMQ Tornado  Python Web框架Tornado的异步处理代码示例 一个进程处理10K连接：分析Tornado源码  业务  秒杀系统优化方案之缓存、队列、锁设计思路 用户密码：md5&#43;salt方式  架构  李艳鹏：技术人如何修炼内功  唯一id  uuid 分布式id  我们有两台mysql都可以写，自增id不会有问题么，机智的同事设置了auto-increment-offset|increment=2 可以部署redis来生成唯一id   python  线程安全的单例模式 协程 闭包 垃圾回收机制  操作系统  epoll、kqueue、select 调度算法 - redis的淘汰机制 死锁 IPC进程间通信  网络  http和https  RESTful架构 SOAP RPC 动态规划 ">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -281,6 +281,7 @@
 <li>聚集索引,非聚集索引,B-Tree,B+Tree,最左前缀原理</li>
 </ul></li>
 <li>乐观锁、悲观锁</li>
+<li>我自己整理了一张mysql的思维导图 - 在整理的过程中补了很多知识点。</li>
 </ul>
 
 <h1 id="数据存储">数据存储</h1>
@@ -302,6 +303,8 @@
 <li>apache和nginx的区别。我觉得最重要的一个：apache没有办法处理C10K问题，选Nginx。</li>
 </ul>
 
+<h1 id="rabbitmq">RabbitMQ</h1>
+
 <h1 id="tornado">Tornado</h1>
 
 <ul>
@@ -319,14 +322,19 @@
 <h1 id="架构">架构</h1>
 
 <ul>
-<li><a href="https://mp.weixin.qq.com/s/BB_-t3lirbXhErdTlfuiNQ">李艳鹏：技术人如何修炼内功</a></li>
+<li><a href="https://mp.eixin.qq.com/s/BB_-t3lirbXhErdTlfuiNQ">李艳鹏：技术人如何修炼内功</a></li>
 </ul>
 
 <h1 id="唯一id">唯一id</h1>
 
 <ul>
 <li>uuid</li>
-<li>分布式id</li>
+<li>分布式id
+
+<ul>
+<li>我们有两台mysql都可以写，自增id不会有问题么，机智的同事设置了auto-increment-offset|increment=2</li>
+<li>可以部署redis来生成唯一id</li>
+</ul></li>
 </ul>
 
 <h1 id="python">python</h1>
@@ -735,7 +743,7 @@
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         23 posts found
+         22 posts found
       </p>
     </div>
   </div>
