@@ -21,7 +21,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.46 with theme Tranquilpeak 0.4.3-BETA">
+    <meta name="generator" content="Hugo 0.54.0 with theme Tranquilpeak 0.4.3-BETA">
     <title>Python高级开发技术栈</title>
     <meta name="author" content="Snail Mu">
     <meta name="keywords" content="">
@@ -30,21 +30,15 @@
     
 
     
-    <meta name="description" content="为自己准备的Python高级开发技术栈。
-
-">
-    <meta property="og:description" content="为自己准备的Python高级开发技术栈。
-
-">
+    <meta name="description" content="为自己准备的Python高级开发技术栈。">
+    <meta property="og:description" content="为自己准备的Python高级开发技术栈。">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Python高级开发技术栈">
     <meta property="og:url" content="/2018/06/python%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%A0%88/">
     <meta property="og:site_name" content="Snail Mu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Snail Mu">
-    <meta name="twitter:description" content="为自己准备的Python高级开发技术栈。
-
-">
+    <meta name="twitter:description" content="为自己准备的Python高级开发技术栈。">
     
       <meta name="twitter:creator" content="@snail_mu">
     
@@ -270,8 +264,6 @@
             <div class="main-content-wrap">
               <p>为自己准备的Python高级开发技术栈。</p>
 
-<p></p>
-
 <p><img src="https://363549406.github.io/images/Python高级开发工程师.png" alt="Python高级开发工程师" /></p>
               
             </div>
@@ -350,7 +342,7 @@
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2018 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
+    &copy; 2019 <a href="https://github.com/363549406">Snail Mu</a>. All Rights Reserved
   </span>
 </footer>
 
@@ -482,8 +474,7 @@
                   Aug 8, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>基础款my.cnf文件需要有哪些配置
-</p></div>
+              <div class="media-content hide-xs font-merryweather"><p>基础款my.cnf文件需要有哪些配置</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -500,9 +491,7 @@
                   Aug 8, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>Requests作者Kenneth Reitz的另一个作品。</p>
-
-<p></p></div>
+              <div class="media-content hide-xs font-merryweather"><p>Requests作者Kenneth Reitz的另一个作品。</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -519,7 +508,24 @@
                   Aug 8, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p></p></div>
+              <div class="media-content hide-xs font-merryweather">安装过MySQL后，MySQL中自带了4个数据库。
+information_schema 关于数据的数据，你可以叫做元数据。下面看下information_schema数据库中包含的表都是些什么。
+ CHARACTER_SETS：从名字看数据库支持的字符集 COLLATIONS：字符序。 COLUMNS：表中的列信息 ENGINES：存储引擎 SCHEMATE：提供所有数据库信息。show databases； *_PRIVILEGES：权限信息  还有很多表，基本上看名字可以看出来存储的信息。
+之前我就不太明白COLLATION的概念。这里了解了一下。COLLATION是对比方法，用于指定数据集如何排序，以及字符串的比较规则。先看下字符集里面utf8mb4对应的default collation是utf8mb4_general_ci。这里面ci代表case ignore我猜的。总结下COLLATION的定义有两种格式。
+ &lt;character_set&gt;_&lt;language/other&gt;_&lt;ci/cs&gt; &lt;character_set&gt;_&lt;bin&gt;  cs就是 case sensitive。bin是二进制。
+在查看一下COLLATIONS表中character_set为utf8mb4的结果，可以看到同一个字符集可以有很多COLLATIONS来选择，不同COLLATION的排序、字符对比的准确性和性能都不同。
+MySQL数据库服务器有SHOW指令方便我们查询information_schema表中的信息。如常用的 show databases、show tables、show processlist等。
+DESCRIBE TABLE也是使用到这个数据库中信息。
+顺便提一下之前在使用Django migrate的时候在information_schema中某个表找信息帮助我定位到错误的。现在还没有安装环境没有办法验证。
+mysql 就像名字里自带的高贵一样，这个表里面不用来放核心数据都说不过去。不要乱改。但是看看还是可以的。之前配置的主从同步就涉及到mysql.slave_master_info表。
+performance_schema show variables like 'performance_schema';查看了下我电脑上装的是开启的。
+主要是服务器监控信。performance_schema数据库中的表都是使用preformance_schema引擎不占用磁盘存储。
+其实我更没有使用过。先知道这么个东西吧。
+sys 在MySQL 5.7中加入，包含了一系列的存储过程、自定义函数以及视图来帮助我们快速了解系统的元数据信息。
+sys数据库下除了sys_config是表以为，其他都是视图。
+我觉得这个可以认为是一个方便的工具集么。sys下面的视图分为几类
+ host_summary: 服务器层面 user_summary: 用户层级 InnoDB: InnoDB层面 IO: I/O层的统计 memory schema session statement wait  扩展阅读：
+ 在Oracle专家眼中，MySQL sys schema是怎样的存在 </div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -536,8 +542,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>本文将会介绍Python2和Python3中的字符编码。
-</p></div>
+              <div class="media-content hide-xs font-merryweather"><p>本文将会介绍Python2和Python3中的字符编码。</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -554,8 +559,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>PHP是世界上最好的语言 VS Python是世界上最好的两门语言。
-</p></div>
+              <div class="media-content hide-xs font-merryweather"><p>PHP是世界上最好的语言 VS Python是世界上最好的两门语言。</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -572,8 +576,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>每天上网浏览网页的的背后到底是什么样子的。
-</p></div>
+              <div class="media-content hide-xs font-merryweather"><p>每天上网浏览网页的的背后到底是什么样子的。</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -590,8 +593,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>计算机网络分类、设备、OSI模型。
-</p></div>
+              <div class="media-content hide-xs font-merryweather"><p>计算机网络分类、设备、OSI模型。</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -608,8 +610,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>算法第三讲排序(sort)
-</p></div>
+              <div class="media-content hide-xs font-merryweather"><p>算法第三讲排序(sort)</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -627,8 +628,7 @@
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather"><p>这篇文章帮助你了解Linux服务器的网络相关命令
-<strong>以后会回来把这些内容补全</strong>
-</p></div>
+<strong>以后会回来把这些内容补全</strong></p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -645,8 +645,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>算法第三讲哈希（hashing)
-</p></div>
+              <div class="media-content hide-xs font-merryweather"><p>算法第三讲哈希（hashing)</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>

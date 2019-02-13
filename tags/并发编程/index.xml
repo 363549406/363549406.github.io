@@ -17,8 +17,7 @@
       <pubDate>Fri, 29 Jun 2018 15:05:25 +0800</pubDate>
       
       <guid>https://363549406.github.io/2018/06/python-gil/</guid>
-      <description>&lt;p&gt;一个Python解释器同一时间只有一个线程在执行。
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;一个Python解释器同一时间只有一个线程在执行。&lt;/p&gt;</description>
     </item>
     
   </channel>
